@@ -1,19 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+git clone
 
-Things you may want to cover:
+Install:
 
-* Ruby version
+* $ gem install foreman
 
-* System dependencies
+* $ rbenv rehash
 
-* Configuration
+* $ npm install
 
-* Database creation
-
-* Database initialization
+* $ s7art (./bin/dev)
 
 * How to run the test suite
 
