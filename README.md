@@ -1,6 +1,13 @@
 # README
 
 git clone
+chmod +x bin/*
+bundle install
+./bin/rails javascript:install:esbuild
+./bin/rails css:install:bootstrap
+
+Should run
+
 
 Install:
 
