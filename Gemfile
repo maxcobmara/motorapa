@@ -42,6 +42,10 @@ gem "jbuilder"
 
 gem 'ransack', '~> 4.1', '>= 4.1.1'
 
+gem 'slim', '~> 5.2'
+gem 'slim-rails', '~> 3.6', '>= 3.6.3'
+
+
 
 
 

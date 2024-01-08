@@ -9,6 +9,9 @@ ransack for search
 bullet for links
 seeddump
 
+TODO: add user login, roles and abilities
+TODO: logo upload for manufacturers
+
 
 
 Features
