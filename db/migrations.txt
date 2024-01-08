@@ -4,6 +4,13 @@ Motorapa link to HargaMinyak/ Taikun Tayar
 https://pganalyze.com/blog/postgis-rails-geocoder < geocoding
 
 
+gems to add
+ransack for search
+bullet for links
+seeddump
+
+
+
 Features
 
 Lesen and budget and type and clutch.
@@ -13,6 +20,15 @@ Compare and rank.
 
 
 Rails g scaffold Product manufacturer:string model:string model_code:string url:string rrp:decimal seat_height_mm:integer wheelbase_mm:integer length_mm:integer height_mm:integer width_mm:integer ground_clearance_mm:integer engine_description:string displacement:integer max_power_ps:decimal max_power_rpm:integer max_torque_nm:decimal max_torque_rpm:integer cylinders:integer cyl_bore:decimal cyl_stroke:decimal cyl_valves:integer fuel:string fuel_capacity_l:decimal consumption_lkm:integer range_km:integer drive_category:integer transmission:string clutch:string gears:integer tyre_front:string tyre_rear:string tube:boolean tyre_category:string wheel_front_in:integer wheel_rear_in:integer kerb_weight_kg:integer brake_front_desc:string brake_rear_desc:string battery_size:string additional_features:text data:text
+
+add on
+assembled_in:string
+
+Rails g scaffold Manufacturer name:string website:string country:string data:text
+
+.. build some sample data maybe models
+
+
 
 pictures
 
