@@ -1,0 +1,118 @@
+
+Motorapa link to HargaMinyak/ Taikun Tayar
+
+https://pganalyze.com/blog/postgis-rails-geocoder < geocoding
+
+
+Features
+
+Lesen and budget and type and clutch.
+Select, find similiar.
+Compare and rank.
+
+
+
+Rails g scaffold Product manufacturer:string model:string model_code:string url:string rrp:decimal seat_height_mm:integer wheelbase_mm:integer length_mm:integer height_mm:integer width_mm:integer ground_clearance_mm:integer engine_description:string displacement:integer max_power_ps:decimal max_power_rpm:integer max_torque_nm:decimal max_torque_rpm:integer cylinders:integer cyl_bore:decimal cyl_stroke:decimal cyl_valves:integer fuel:string fuel_capacity_l:decimal consumption_lkm:integer range_km:integer drive_category:integer transmission:string clutch:string gears:integer tyre_front:string tyre_rear:string tube:boolean tyre_category:string wheel_front_in:integer wheel_rear_in:integer kerb_weight_kg:integer brake_front_desc:string brake_rear_desc:string battery_size:string additional_features:text data:text
+
+pictures
+
+rails g migration Media product_id:integer media_category:string url:string
+
+rails g migration Dealer name:string address:string street:string city:string poskod:string state:string longditude:decimal latitude:decimal status:string <- none/basic/bike
+
+rails g migration BikeDealer dealer_id bike_id price offers
+Bike Dealer Offers... months dp monthlies/
+
+rails g migration Payment dealer_id:integer amount:integer payment_date:datetime payment_category:string 
+
+
+pictures
+
+<-register under tpsb
+
+
+Motorcycle
+
+Manufacturer
+Model
+ModelCode
+RRP
+URL
+
+Engine
+Engine Type 	4-Cycle, 1-cylinder, Oil cooled
+Engine Displacement 	249 cc
+Max Power 	26.5 PS @ 9300 rpm
+Emission Type 	bs6-2.0
+Max Torque 	22.2 Nm @ 7300 rpm
+Bore 	76 mm
+Stroke 	54.9 mm
+No Of Cylinders 	1
+Drive Type 	Chain Drive
+Valve Per Cylinder 	4
+Fuel Type 	Petrol
+Clutch
+
+Transmission
+No Of Gears 	6 Speed
+Transmission 	Manual
+
+Tyres and Wheels
+Tyre Size 	
+Front :-110/70-17, Rear :-150/60-17
+Wheel Size 	
+Front :-431.8 mm,Rear :-431.8 mm
+Radial Tyre 	Yes
+Tyre Type 	Tubeless
+Wheels Type (Pressed Steel/ Alloy) 	Alloy
+
+
+Seat height 	800 mm
+Length*Width*Height 	
+2010*740*1035 mm^3
+Wheelbase 	1345 mm
+Length 	2010 mm
+Height 	1035 mm
+Ground Clearance 	165 mm
+Width 	740 mm
+Fuel Capacity 	12 Liters
+Kerb Weight 	161 Kg
+Tail Light 	LED
+Front Brake Diameter 	300 mm
+
+Additional Features 	
+ETA Updates, Phone Battery Level Display
+Battery Type 	Lead Acid
+Battery Size
+Call/SMS alerts 	Yes
+LED tail lights 	Yes
+Turn Signal Lamp 	LED
+
+
+media
+motor_id
+link
+media_type
+graph_data
+
+
+
+sellers
+pricing RM 24 per year registration. allows we sell this bike
+
+RM 2 per bike model per year. 
+Allows sharing sales person contacts.
+Allows sharing pricing and finance information.
+
+
+
+1000 dealers x RM 24
+
+24k per year
+200 dealers have five bikes each. 1000 per year. 
+
+
+
+
+
+

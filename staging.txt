@@ -1,0 +1,44 @@
+Dec 20 08:10:04 staging-server systemd[1]: Starting PostgreSQL Cluster 14-main...
+Dec 20 08:10:05 staging-server postgresql@14-main[3960]: Error: /usr/lib/postgresql/14/bin/pg_ctl /usr/lib/postgresql/14/bin/pg_ctl start -D /var/lib/postgresql/14/main -l /var/l>
+Dec 20 08:10:05 staging-server postgresql@14-main[3960]: 2023-12-20 08:10:05.013 UTC [3965] FATAL:  could not access private key file "/etc/ssl/private/ssl-cert-snakeoil.key": No>
+Dec 20 08:10:05 staging-server postgresql@14-main[3960]: 2023-12-20 08:10:05.013 UTC [3965] LOG:  database system is shut down
+Dec 20 08:10:05 staging-server postgresql@14-main[3960]: pg_ctl: could not start server
+Dec 20 08:10:05 staging-server postgresql@14-main[3960]: Examine the log output.
+Dec 20 08:10:05 staging-server systemd[1]: postgresql@14-main.service: Can't open PID file /run/postgresql/14-main.pid (yet?) after start: Operation not permitted
+Dec 20 08:10:05 staging-server systemd[1]: postgresql@14-main.service: Failed with result 'protocol'.
+Dec 20 08:10:05 staging-server systemd[1]: Failed to start PostgreSQL Cluster 14-main.
+
+
+       Files /var/www/odyssey-raya-staging/current/db/migrate/20211001000001_create_aircrafts.rb and ./db/migrate/20211001000001_create_aircrafts.rb differ
+       Files /var/www/odyssey-raya-staging/current/db/migrate/20231001000001_create_schedules.rb and ./db/migrate/20231001000001_create_schedules.rb differ
+       Files /var/www/odyssey-raya-staging/current/db/migrate/20231001000004_create_flights.rb and ./db/migrate/20231001000004_create_flights.rb differ
+
+
+RAILS_ENV=staging bundle exec rake db:migrate:down VERSION=20211001000001
+RAILS_ENV=staging bundle exec rake db:migrate:down VERSION=20231001000001
+RAILS_ENV=staging bundle exec rake db:migrate:down VERSION=20231001000004
+RAILS_ENV=staging bundle exec rake db:migrate
+
+
+
+server:
+  user: devraya
+  domain: 172.104.177.82
+
+database:
+  user: postgres
+  password: rayabcd$1234
+
+azure:
+  client_id: aff46087-96c1-4025-80b1-190f6060bfa5
+  client_secret: ~In8Q~i32zCyCLAWL_U-7wMddtBhk5Hp-2bjkdt-
+  tenant_id: db226fc8-db9f-4a59-ae4f-362168f813cf
+
+ngen:
+  user: yaacob
+  password: C@rgo#2021
+
+s3service:
+  access_key: TK1JBEO0OBIXOG2H3R55
+  secret_key: s3epBobDyO560QL9UevSqcGnaL1XKR08AhPizrlQ
+  endpoint: https://ap-south-1.linodeobjects.com/odyssey-staging
