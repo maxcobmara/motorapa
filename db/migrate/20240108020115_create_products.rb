@@ -3,10 +3,12 @@ class CreateProducts < ActiveRecord::Migration[7.0]
     create_table :products do |t|
       t.string :slug,              null: false
       t.string :manufacturer_id
+      t.integer :site_category
+      t.string :manufacturer_category
       t.string :model
       t.string :model_code
       t.string :url
-      t.decimal :rrp
+      t.decimal :rrp, precision: 9, scale: 2
       t.string  :assembled_in
       t.integer :seat_height_mm
       t.integer :wheelbase_mm

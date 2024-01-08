@@ -25,10 +25,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
   create_table "products", force: :cascade do |t|
     t.string "slug", null: false
     t.string "manufacturer_id"
+    t.integer "site_category"
+    t.string "manufacturer_category"
     t.string "model"
     t.string "model_code"
     t.string "url"
-    t.decimal "rrp"
+    t.decimal "rrp", precision: 9, scale: 2
     t.string "assembled_in"
     t.integer "seat_height_mm"
     t.integer "wheelbase_mm"

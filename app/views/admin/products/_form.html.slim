@@ -1,0 +1,266 @@
+= form_with(model: [:admin, @product]) do |form|
+  = render 'shared/error_messages', object: form.object
+
+  .spacer-1
+  .row
+    .col-md-6.mb-2
+      = form.label :manufacturer, style: "display: block"
+      = form.collection_select :manufacturer_id, Manufacturer.all, :id, :name, {include_blank: true}, class: "form-select"
+
+  .row
+    .col-md-5.mb-2
+      = form.label :model, style: "display: block"
+      = form.text_field :model, class: "form-control"
+      
+    .col-md-4.mb-2
+      = form.label :model_code, style: "display: block"
+      = form.text_field :model_code, class: "form-control"
+
+  .row
+    .col-md-3.mb-2
+      = form.label :site_category, style: "display: block"      
+      = form.select :site_category, options_for_select(Selector::BIKECAT.collect { |c| [c, c] }, selected: @product.site_category), { include_blank: 'Select a Bike Category' }, class: 'form-select'
+
+    .col-md-6.mb-2
+      = form.label :manufacturer_category, style: "display: block"
+      = form.text_field :manufacturer_category, class: "form-control"
+
+  .row
+    .col-md-5.mb-2
+      = form.label :url, style: "display: block"
+      = form.text_field :url, class: "form-control"
+      
+    .col-md-4.mb-2
+      = form.label :rrp, style: "display: block"
+      = form.text_field :rrp, class: "form-control"
+      
+  .row
+    .spacer-1
+    h6 Dimensions
+    hr
+
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+    .col-lg.mb-2
+      = form.label :length_mm, "Length", style: "display: block"
+      .input-group
+        = form.text_field :length_mm, class: "form-control"
+        span.input-group-text mm
+        
+    .col-lg.mb-2
+      = form.label :height_mm, "Height", style: "display: block"
+      .input-group
+        = form.text_field :height_mm, class: "form-control"
+        span.input-group-text mm
+        
+    .col-lg.mb-2
+      = form.label :width_mm, "Width", style: "display: block"
+      .input-group
+        = form.text_field :width_mm, class: "form-control"
+        span.input-group-text mm
+
+    .col-lg.mb-2
+      = form.label :seat_height_mm, "Seat Height", style: "display: block"
+      .input-group
+        = form.text_field :seat_height_mm, class: "form-control"
+        span.input-group-text mm
+        
+    .col-lg.mb-2
+      = form.label :wheelbase_mm, "Wheel Base", style: "display: block"
+      .input-group
+        = form.text_field :wheelbase_mm, class: "form-control"
+        span.input-group-text mm
+        
+    .col-lg.mb-2
+      = form.label :ground_clearance_mm, "Ground Clearance", style: "display: block"
+      .input-group
+        = form.text_field :ground_clearance_mm, class: "form-control"
+        span.input-group-text mm
+      
+  .row
+    .spacer-1
+    h6 Engine & Power
+    hr
+
+  .row
+    .col-md-5.mb-2
+      = form.label :engine_description, style: "display: block"
+      = form.text_field :engine_description, class: "form-control"
+        
+    .col-md-2.mb-2
+      = form.label :displacement, style: "display: block"
+      .input-group
+        = form.text_field :displacement, class: "form-control"
+        span.input-group-text cc
+
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+    .col-lg.mb-2
+      = form.label :cylinders, style: "display: block"
+      = form.text_field :cylinders, class: "form-control"
+        
+    .col-lg.mb-2
+      = form.label :cyl_bore, "Bore", style: "display: block"
+      .input-group
+        = form.text_field :cyl_bore, class: "form-control"
+        span.input-group-text mm
+        
+    .col-lg.mb-2
+      = form.label :cyl_stroke, "Stroke", style: "display: block"
+      .input-group
+        = form.text_field :cyl_stroke, class: "form-control"
+        span.input-group-text mm
+
+    .col-lg.mb-2
+      = form.label :cyl_valves, "Valves", style: "display: block"
+      .input-group
+        = form.text_field :cyl_valves, class: "form-control"
+        span.input-group-text \cyl
+        
+
+  .row
+    .col-md-2.mb-2
+      = form.label :max_power_ps, style: "display: block"
+      .input-group
+        = form.text_field :max_power_ps, class: "form-control"
+        span.input-group-text PS at
+        
+    .col-md-2.mb-2
+      = form.label :max_power_rpm, style: "display: block"
+      .input-group
+        = form.text_field :max_power_rpm, class: "form-control"
+        span.input-group-text RPM 
+        
+        
+    .col-md-2.mb-2
+      = form.label :max_torque_nm, style: "display: block"
+      .input-group
+        = form.text_field :max_torque_nm, class: "form-control"
+        span.input-group-text Nm at
+        
+    .col-md-2.mb-2
+      = form.label :max_torque_rpm, style: "display: block"
+      .input-group
+        = form.text_field :max_torque_rpm, class: "form-control"
+        span.input-group-text RPM 
+      
+  .row
+    .spacer-1
+    h6 Fuel
+    hr
+
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+    .col-lg.mb-2
+      = form.label :fuel, style: "display: block"
+      = form.text_field :fuel, class: "form-control"
+      
+    .col-lg.mb-2
+      = form.label :fuel_capacity_l, "Fuel Capacity", style: "display: block"
+      .input-group
+        = form.text_field :fuel_capacity_l, class: "form-control"
+        span.input-group-text Litres
+      
+    .col-lg.mb-2
+      = form.label :consumption_lkm, "Consumption", style: "display: block"
+      .input-group
+        = form.text_field :consumption_lkm, class: "form-control"
+        span.input-group-text L/Km
+      
+    .col-lg.mb-2
+      = form.label :range_km, "Range", style: "display: block"
+      .input-group
+        = form.text_field :range_km, class: "form-control"
+        span.input-group-text Kms
+      
+  .row
+    .spacer-1
+    h6 Drivetrain
+    hr
+
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+    .col-lg.mb-2
+      = form.label :drive_category, style: "display: block"
+      = form.text_field :drive_category, class: "form-control"
+      
+    .col-lg.mb-2
+      = form.label :transmission, style: "display: block"
+      = form.text_field :transmission, class: "form-control"
+      
+    .col-lg.mb-2
+      = form.label :clutch, style: "display: block"
+      = form.text_field :clutch, class: "form-control"
+      
+    .col-lg.mb-2
+      = form.label :gears, style: "display: block"
+      = form.number_field :gears, class: "form-control"
+      
+  .row
+    .spacer-1
+    h6 Tyres & Wheels
+    hr
+
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+    .col-lg.mb-2
+      = form.label :tyre_front, style: "display: block"
+      = form.text_field :tyre_front, class: "form-control"
+      
+    .col-lg.mb-2
+      = form.label :tyre_rear, style: "display: block"
+      = form.text_field :tyre_rear, class: "form-control"
+      
+    .col-lg.mb-2
+      = form.label :tube, ""
+      .form-check
+        = form.check_box :tube, class: "form-check-input"
+        = form.label :tube, style: "form-check-label"
+        
+      
+    .col-lg.mb-2
+      = form.label :tyre_category, style: "display: block"
+      = form.text_field :tyre_category, class: "form-control"
+        
+    .col-md-2.mb-2
+      = form.label :wheel_front_in, style: "display: block"
+      .input-group
+        = form.text_field :wheel_front_in, class: "form-control"
+        span.input-group-text inch 
+        
+    .col-md-2.mb-2
+      = form.label :wheel_rear_in, style: "display: block"
+      .input-group
+        = form.text_field :wheel_rear_in, class: "form-control"
+        span.input-group-text inch 
+      
+  .row
+    .spacer-1
+    h6 Other Items
+    hr
+
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+    .col-md-2.mb-2
+      = form.label :kerb_weight_kg, style: "display: block"
+      .input-group
+        = form.text_field :kerb_weight_kg, class: "form-control"
+        span.input-group-text Kgs 
+        
+    .col-lg.mb-2
+      = form.label :brake_front_desc, style: "display: block"
+      = form.text_field :brake_front_desc, class: "form-control"
+        
+    .col-lg.mb-2
+      = form.label :brake_rear_desc, style: "display: block"
+      = form.text_field :brake_rear_desc, class: "form-control"
+        
+    .col-lg.mb-2
+      = form.label :battery_size, style: "display: block"
+      = form.text_field :battery_size, class: "form-control"
+      
+  .row
+    .col-lg.mb-2
+      = form.label :additional_features, style: "display: block"
+      = form.text_area :additional_features, class: "form-control"
+    .col-lg.mb-2
+      = form.label :data, style: "display: block"
+      = form.text_area :data, class: "form-control"
+      
+  .actions
+    = form.submit class: "btn btn-primary"
+
