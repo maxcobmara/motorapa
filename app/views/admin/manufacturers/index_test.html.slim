@@ -1,0 +1,18 @@
+= title(controller_path)
+
+<h1>Welcome, this is the home page</h1>  
+  
+<button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="Amazing content, right ?">
+  | Click to toggle popover
+</button>  
+
+<div id="manufacturers">
+  <% @manufacturers.each do |manufacturer| %>
+    <%= render manufacturer %>
+    <p>
+      <%= link_to "Show this manufacturer", admin_manufacturer_path(manufacturer) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New manufacturer", new_admin_manufacturer_path %>

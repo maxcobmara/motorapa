@@ -1,0 +1,12 @@
+body {
+  padding: 40px 5%;
+  
+  .new_button {font-size: smaller;}
+  .btn-action, a:link.btn-action, a:visited.btn-action {margin-top: 0; padding:0 5px; border: 0; }
+  .link_right {float:right; margin-top:-1.5em;
+    &.r20 {padding-right: 20%;}
+    &.r40 {padding-right: 40%;}
+    &.r50 {padding-right: 50%;}
+    &.r80 {padding-right: 80%;}
+  }
+}

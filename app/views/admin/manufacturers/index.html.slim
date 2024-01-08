@@ -1,0 +1,18 @@
+= title(controller_path)
+
+.admin
+  table.table.table-hover.table-sm
+    thead.table-light
+      th Name
+      th Website
+      th Country
+      th
+    tbody.table-group-divider
+      - @manufacturers.each do |manufacturer|
+        tr
+          td= link_to manufacturer.name, admin_manufacturer_path(manufacturer)
+          td= manufacturer.website
+          td= manufacturer.country
+          td.action
+            = action_link("edit", manufacturer, controller_path)
+            = action_link("delete", manufacturer, controller_path)

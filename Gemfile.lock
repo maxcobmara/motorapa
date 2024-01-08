@@ -94,6 +94,8 @@ GEM
       reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
+    friendly_id (5.5.1)
+      activerecord (>= 4.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.10.0)
@@ -208,7 +210,7 @@ GEM
     thor (1.2.1)
     tilt (2.3.0)
     timeout (0.3.0)
-    turbo-rails (1.1.1)
+    turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
@@ -241,6 +243,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   debug
+  friendly_id (~> 5.5, >= 5.5.1)
   jbuilder
   jsbundling-rails
   puma (~> 5.0)
@@ -253,7 +256,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
-  turbo-rails
+  turbo-rails (~> 1.5)
   tzinfo-data
   web-console
   webdrivers

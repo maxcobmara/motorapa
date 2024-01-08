@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
   create_table "manufacturers", force: :cascade do |t|
+    t.string "slug", null: false
     t.string "name"
     t.string "website"
     t.string "country"
@@ -21,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
   end
 
   create_table "products", force: :cascade do |t|
+    t.string "slug", null: false
     t.string "manufacturer"
     t.string "model"
     t.string "model_code"

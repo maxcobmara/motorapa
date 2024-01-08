@@ -12,7 +12,7 @@ seeddump
 TODO: add user login, roles and abilities
 TODO: logo upload for manufacturers
 
-
+This is how I added bootstrap: https://ryanbigg.com/2023/04/rails-7-bootstrap-css-javascript-with-esbuild
 
 Features
 
