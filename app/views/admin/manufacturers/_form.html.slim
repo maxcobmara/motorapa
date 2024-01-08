@@ -1,0 +1,30 @@
+= form_with(model: [:admin, @manufacturer]) do |form|
+  = render 'shared/error_messages', object: form.object
+
+  .row
+    .col-md-4.mb-2
+      = form.label :name
+      = form.text_field :name, class: "form-control"
+
+  .row
+    .col-md-4.mb-2
+      = form.label :website, style: "display: block"
+      .input-group
+        span.input-group-text https://
+        = form.text_field :website, class: "form-control"
+
+  .row
+    .col-md-4.mb-2
+      = form.label :country, style: "display: block" 
+      = form.country_select :country, {priority_countries: Selector::MCOUNTRY}, {class: 'form-select'}
+
+
+  <div>
+    = form.label :data, style: "display: block"
+    = form.text_area :data
+  </div>
+
+  <div>
+    = form.submit
+  </div>
+

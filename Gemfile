@@ -46,7 +46,8 @@ gem 'slim', '~> 5.2'
 gem 'slim-rails', '~> 3.6', '>= 3.6.3'
 
 
-
+gem 'countries', '~> 5.7', '>= 5.7.1'
+gem 'country_select', '~> 8.0'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

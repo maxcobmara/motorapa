@@ -38,7 +38,7 @@ class Admin::ManufacturersController < ApplicationController
   def update
     respond_to do |format|
       if @manufacturer.update(manufacturer_params)
-        format.html { redirect_to admin_manufacturer_url(@manufacturer), notice: "Manufacturer was successfully updated." }
+        format.html { redirect_to admin_manufacturer_path(@manufacturer), notice: "Manufacturer was successfully updated." }
         format.json { render :show, status: :ok, location: @manufacturer }
       else
         format.html { render :edit, status: :unprocessable_entity }

@@ -13,7 +13,7 @@ module LinksHelper
   #admin action buttons
   def action_link(method, object, controller=0, prefix=0 )
     controller   = controller.gsub('/', '_').singularize
-    record       = object.id
+    record       = object.slug
     button_class = "btn btn-outline-dark btn-action"
     title = "#{method} #{controller}".titleize
     dataset = {toggle: "tooltip", placement: "left"}
