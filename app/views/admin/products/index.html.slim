@@ -1,0 +1,6 @@
+= title(controller_path)
+
+.admin
+  - @products.each do |product|
+    = render product
+    p= link_to "Show this product", admin_product

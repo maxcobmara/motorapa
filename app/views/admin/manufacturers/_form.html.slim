@@ -18,13 +18,7 @@
       = form.label :country, style: "display: block" 
       = form.country_select :country, {priority_countries: Selector::MCOUNTRY}, {class: 'form-select'}
 
+  .actions
+    = form.submit class: "btn btn-primary"
 
-  <div>
-    = form.label :data, style: "display: block"
-    = form.text_area :data
-  </div>
-
-  <div>
-    = form.submit
-  </div>
 

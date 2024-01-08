@@ -2,7 +2,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
   def change
     create_table :products do |t|
       t.string :slug,              null: false
-      t.string :manufacturer
+      t.string :manufacturer_id
       t.string :model
       t.string :model_code
       t.string :url
@@ -47,5 +47,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :products, :slug, unique: true
   end
 end

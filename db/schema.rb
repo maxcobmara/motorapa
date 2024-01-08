@@ -19,11 +19,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
     t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_manufacturers_on_slug", unique: true
   end
 
   create_table "products", force: :cascade do |t|
     t.string "slug", null: false
-    t.string "manufacturer"
+    t.string "manufacturer_id"
     t.string "model"
     t.string "model_code"
     t.string "url"
@@ -67,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
     t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
 end

@@ -9,5 +9,6 @@ class CreateManufacturers < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :manufacturers, :slug, unique: true
   end
 end

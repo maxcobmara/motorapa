@@ -12,7 +12,9 @@
         tr
           td= link_to manufacturer.name, admin_manufacturer_path(manufacturer)
           td= manufacturer.website
-          td= manufacturer.country
+          td
+            = manufacturer.country
+            = ISO3166::Country.find_country_by_alpha2(manufacturer.country).try(:emoji_flag)
           td.action
             = action_link("edit", manufacturer, controller_path)
             = action_link("delete", manufacturer, controller_path)
