@@ -3,4 +3,4 @@
 .admin
   - @products.each do |product|
     = render product
-    p= link_to "Show this product", admin_product
+    p= link_to "Show this product", admin_product_path(product)

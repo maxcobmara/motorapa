@@ -65,6 +65,10 @@ class Admin::ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:manufacturer, :model, :model_code, :url, :rrp, :seat_height_mm, :wheelbase_mm, :length_mm, :height_mm, :width_mm, :ground_clearance_mm, :engine_description, :displacement, :max_power_ps, :max_power_rpm, :max_torque_nm, :max_torque_rpm, :cylinders, :cyl_bore, :cyl_stroke, :cyl_valves, :fuel, :fuel_capacity_l, :consumption_lkm, :range_km, :drive_category, :transmission, :clutch, :gears, :tyre_front, :tyre_rear, :tube, :tyre_category, :wheel_front_in, :wheel_rear_in, :kerb_weight_kg, :brake_front_desc, :brake_rear_desc, :battery_size, :additional_features, :data)
+      params.require(:product).permit(
+        :manufacturer_id, :model, :model_code, :url, :site_category, :manufacturer_category, :rrp, :seat_height_mm, :wheelbase_mm, :length_mm, :height_mm, :width_mm, :ground_clearance_mm, :engine_description, 
+        :displacement, :max_power_ps, :max_power_rpm, :max_torque_nm, :max_torque_rpm, :cylinders, :cyl_bore, :cyl_stroke, :cyl_valves, :fuel, :fuel_capacity_l, :consumption_lkm,
+        :range_km, :drive_category, :transmission, :clutch, :gears, :tyre_front, :tyre_rear, :tube, :tyre_category, :wheel_front_in, :wheel_rear_in, :kerb_weight_kg, 
+        :brake_front_desc, :brake_rear_desc, :battery_size, :additional_features, :data)
     end
 end
