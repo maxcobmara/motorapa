@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_02_020115) do
   create_table "manufacturers", force: :cascade do |t|
     t.string "slug", null: false
     t.string "name"
@@ -25,11 +25,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
   create_table "products", force: :cascade do |t|
     t.string "slug", null: false
     t.string "manufacturer_id"
-    t.integer "site_category"
+    t.string "category"
     t.string "manufacturer_category"
     t.string "model"
     t.string "model_code"
-    t.string "url"
     t.decimal "rrp", precision: 9, scale: 2
     t.string "assembled_in"
     t.integer "seat_height_mm"
@@ -48,8 +47,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
     t.decimal "cyl_bore"
     t.decimal "cyl_stroke"
     t.integer "cyl_valves"
+    t.decimal "oil_capacity_l", precision: 5, scale: 2
     t.string "fuel"
-    t.decimal "fuel_capacity_l"
+    t.decimal "fuel_capacity_l", precision: 5, scale: 2
     t.integer "consumption_lkm"
     t.integer "range_km"
     t.integer "drive_category"
@@ -62,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_08_021533) do
     t.string "tyre_category"
     t.integer "wheel_front_in"
     t.integer "wheel_rear_in"
+    t.string "suspension_front"
+    t.string "suspension_rear"
     t.integer "kerb_weight_kg"
     t.string "brake_front_desc"
     t.string "brake_rear_desc"

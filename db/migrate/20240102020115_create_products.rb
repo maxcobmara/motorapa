@@ -3,11 +3,10 @@ class CreateProducts < ActiveRecord::Migration[7.0]
     create_table :products do |t|
       t.string :slug,              null: false
       t.string :manufacturer_id
-      t.integer :site_category
+      t.string :category
       t.string :manufacturer_category
       t.string :model
       t.string :model_code
-      t.string :url
       t.decimal :rrp, precision: 9, scale: 2
       t.string  :assembled_in
       t.integer :seat_height_mm
@@ -26,8 +25,9 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.decimal :cyl_bore
       t.decimal :cyl_stroke
       t.integer :cyl_valves
+      t.decimal :oil_capacity_l, precision: 5, scale: 2
       t.string :fuel
-      t.decimal :fuel_capacity_l
+      t.decimal :fuel_capacity_l, precision: 5, scale: 2
       t.integer :consumption_lkm
       t.integer :range_km
       t.integer :drive_category
@@ -40,6 +40,8 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :tyre_category
       t.integer :wheel_front_in
       t.integer :wheel_rear_in
+      t.string  :suspension_front
+      t.string  :suspension_rear
       t.integer :kerb_weight_kg
       t.string :brake_front_desc
       t.string :brake_rear_desc
