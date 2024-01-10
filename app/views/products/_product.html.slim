@@ -1,13 +1,41 @@
 <div id="<%= dom_id product %>">
-  <p>
-    <strong>Manufacturer:</strong>
-    <%= product.manufacturer %>
-  </p>
+.row.justify-content-center
+  .col-4
+    h2 #{product.manufacturer.name} #{product.model}
 
-  <p>
-    <strong>Model:</strong>
-    <%= product.model %>
-  </p>
+.row
+  .d-flex.align-items-start
+    .nav.flex-column.nav-pills.me-3#v-pills-tab[role="tablist" aria-orientation="vertical"]
+      button.nav-link.active#v-pills-dimensions-tab[data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"] Dimensions
+      button.nav-link#v-pills-engine-tab[data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"]Engine
+      <button class="nav-link" id="v-pills-disabled-tab" data-bs-toggle="pill" data-bs-target="#v-pills-disabled" type="button" role="tab" aria-controls="v-pills-disabled" aria-selected="false" disabled>Disabled</button>
+      <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>
+      <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+
+    .tab-content#v-pills-tabContent
+      .tab-pane.fade.show.active#v-pills-home[role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0"]
+        table.table
+          tr
+            th Length
+            td #{product.length_mm} mm
+            th Height
+            td #{product.height_mm} mm
+            th Width
+            td #{product.width_mm} mm            
+          tr
+            th Seat height
+            td #{product.seat_height_mm} mm
+            th Wheelbase
+            td #{product.wheelbase_mm} mm
+            th Ground clearance
+            td #{product.ground_clearance_mm} mm
+      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">...</div>
+      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">...</div>
+    </div>
+
+
 
   <p>
     <strong>Model code:</strong>
@@ -15,43 +43,8 @@
   </p>
 
   <p>
-    <strong>Url:</strong>
-    <%= product.url %>
-  </p>
-
-  <p>
     <strong>Rrp:</strong>
     <%= product.rrp %>
-  </p>
-
-  <p>
-    <strong>Seat height mm:</strong>
-    <%= product.seat_height_mm %>
-  </p>
-
-  <p>
-    <strong>Wheelbase mm:</strong>
-    <%= product.wheelbase_mm %>
-  </p>
-
-  <p>
-    <strong>Length mm:</strong>
-    <%= product.length_mm %>
-  </p>
-
-  <p>
-    <strong>Height mm:</strong>
-    <%= product.height_mm %>
-  </p>
-
-  <p>
-    <strong>Width mm:</strong>
-    <%= product.width_mm %>
-  </p>
-
-  <p>
-    <strong>Ground clearance mm:</strong>
-    <%= product.ground_clearance_mm %>
   </p>
 
   <p>
