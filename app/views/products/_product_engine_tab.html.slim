@@ -1,0 +1,33 @@
+.row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
+  .col-lg.mb-2.label Engine Type
+  .col-lg.mb-2.measure #{product.engine_description}
+  .col-lg.mb-2.label Displacement
+  .col-lg.mb-2.measure #{product.displacement} cc
+  .col-lg.mb-2.label Max power
+  .col-lg.mb-2.measure #{product.max_power_ps}PS@#{product.max_power_rpm}rpm
+  .col-lg.mb-2.label Max torque:
+  .col-lg.mb-2.measure #{product.max_torque_nm}Nm@#{product.max_torque_rpm}rpm
+  .col-lg.mb-2.label Cylinders & Valves
+  .col-lg.mb-2.measure #{product.cylinders}cyl #{product.cyl_valves}valves pc
+  .col-lg.mb-2.label Bore x Stroke
+  .col-lg.mb-2.measure #{product.cyl_bore}mm x #{product.cyl_stroke}mm
+
+  <p>
+    <strong>Drive category:</strong>
+    <%= product.drive_category %>
+  </p>
+
+  <p>
+    <strong>Transmission:</strong>
+    <%= product.transmission %>
+  </p>
+
+  <p>
+    <strong>Clutch:</strong>
+    <%= product.clutch %>
+  </p>
+
+  <p>
+    <strong>Gears:</strong>
+    <%= product.gears %>
+  </p>

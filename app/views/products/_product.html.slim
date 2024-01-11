@@ -1,13 +1,13 @@
 <div id="<%= dom_id product %>">
 .row.justify-content-center
   .col-4
-    h2 #{product.manufacturer.name} #{product.model}
+    h2 #{product.manufacturer.name} #{product.model} #{product.displacement}
 
 .row
   //.d-flex.align-items-start
   .col-lg-2.align-items-start
     .nav.flex-column.nav-pills.me-3#v-pills-tab[role="tablist" aria-orientation="vertical"]
-      .nav-link.right.active#v-pills-dimensions-tab[data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"] Dimensions
+      .nav-link.right.active#v-pills-dimensions-tab[data-bs-toggle="pill" data-bs-target="#v-pills-dimensions" type="button" role="tab" aria-controls="v-pills-dimensions" aria-selected="true"] Dimensions
       .nav-link#v-pills-engine-tab[data-bs-toggle="pill" data-bs-target="#v-pills-engine" type="button" role="tab" aria-controls="v-pills-engine" aria-selected="false"]Engine
       .nav-link#v-pills-trans-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-trans"  type="button" role="tab" aria-controls="v-pills-trans"  aria-selected="false"]Transmission
       .nav-link#v-pills-fuel-tab[data-bs-toggle="pill"   data-bs-target="#v-pills-fuel"   type="button" role="tab" aria-controls="v-pills-fuel"   aria-selected="false"]Fuel
@@ -17,28 +17,17 @@
 
   .col-lg-10
     .tab-content#v-pills-tabContent
-      .tab-pane.fade.show.active#v-pills-home[role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0"]
-        .row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
-          .col-lg.mb-2.label Length
-          .col-lg.mb-2.measure #{product.length_mm} mm
-          .col-lg.mb-2.label Height
-          .col-lg.mb-2.measure #{product.height_mm} mm
-          .col-lg.mb-2.label Width
-          .col-lg.mb-2.measure #{product.width_mm} mm   
-          .col-lg.mb-2.label Seat height
-          .col-lg.mb-2.measure #{product.seat_height_mm} mm / #{mm_in(product.seat_height_mm)}"
-          .col-lg.mb-2.label Wheelbase
-          .col-lg.mb-2.measure #{product.wheelbase_mm} mm
-          .col-lg.mb-2.label Ground clearance
-          .col-lg.mb-2.measure #{product.ground_clearance_mm} mm
-          
-        
-      <div class="tab-pane fade" id="v-pills-engine" role="tabpanel" aria-labelledby="v-pills-engine-tab" tabindex="0">Engine</div>
-      <div class="tab-pane fade" id="v-pills-trans"  role="tabpanel" aria-labelledby="v-pills-trans-tab"  tabindex="0">Transmission</div>
+      .tab-pane.fade.show.active#v-pills-dimensions[role="tabpanel" aria-labelledby="v-pills-dimensions-tab" tabindex="0"]
+        = render "product_dimensions_tab", product: @product
+      .tab-pane.fade.show#v-pills-engine[role="tabpanel" aria-labelledby="v-pills-engine-tab" tabindex="0"]
+        = render "product_engine_tab", product: @product
+      .tab-pane.fade.show#v-pills-trans[role="tabpanel" aria-labelledby="v-pills-trans-tab" tabindex="0"]
+        = render "product_trans_tab", product: @product
+
+
       <div class="tab-pane fade" id="v-pills-fuel"   role="tabpanel" aria-labelledby="v-pills-fuel-tab"  tabindex="0">Fuel</div>
       <div class="tab-pane fade" id="v-pills-other"  role="tabpanel" aria-labelledby="v-pills-other-tab" tabindex="0">Other</div>
       <div class="tab-pane fade" id="v-pills-media"  role="tabpanel" aria-labelledby="v-pills-media-tab" tabindex="0">Media</div>
-    </div>
 
 
 
@@ -52,55 +41,6 @@
     <%= product.rrp %>
   </p>
 
-  <p>
-    <strong>Engine description:</strong>
-    <%= product.engine_description %>
-  </p>
-
-  <p>
-    <strong>Displacement:</strong>
-    <%= product.displacement %>
-  </p>
-
-  <p>
-    <strong>Max power ps:</strong>
-    <%= product.max_power_ps %>
-  </p>
-
-  <p>
-    <strong>Max power rpm:</strong>
-    <%= product.max_power_rpm %>
-  </p>
-
-  <p>
-    <strong>Max torque nm:</strong>
-    <%= product.max_torque_nm %>
-  </p>
-
-  <p>
-    <strong>Max torque rpm:</strong>
-    <%= product.max_torque_rpm %>
-  </p>
-
-  <p>
-    <strong>Cylinders:</strong>
-    <%= product.cylinders %>
-  </p>
-
-  <p>
-    <strong>Cyl bore:</strong>
-    <%= product.cyl_bore %>
-  </p>
-
-  <p>
-    <strong>Cyl stroke:</strong>
-    <%= product.cyl_stroke %>
-  </p>
-
-  <p>
-    <strong>Cyl valves:</strong>
-    <%= product.cyl_valves %>
-  </p>
 
   <p>
     <strong>Fuel:</strong>
