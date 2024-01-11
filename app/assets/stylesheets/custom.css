@@ -11,4 +11,19 @@ body {
     &.r50 {padding-right: 50%;}
     &.r80 {padding-right: 80%;}
   }
+  .right {align-text: right;}
+  
+  .spec_row {
+    .col-lg {border-bottom: 1px solid #DDD; padding-bottom: 0.5em;
+      &.label {font-size: 0.75em; border-left: 1px solid #DDD;}
+      &.measure {font-size: 0.8em; font-weight: 600;  }
+    }
+  }
+  
+  .table {
+    &.spec_table {
+      th {font-size: 0.75em;}
+      td.measure {text-align:right; }
+    }
+  }
 }
