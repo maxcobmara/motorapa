@@ -26,3 +26,9 @@ Install:
 * Deployment instructions
 
 * ...
+
+
+motorapa.bike
+motorapa.info
+motorapa.forsale
+motorapa.me
