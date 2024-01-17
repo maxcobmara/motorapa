@@ -13,8 +13,11 @@ body {
   }
   .right {align-text: right;}
   
+  
+  .side_menu {font-size: 0.9em;}
   .spec_row {
-    .col-lg {border-bottom: 1px solid #DDD; padding-bottom: 0.5em;
+    padding-top: 1.5em;
+    .col-lg { padding-bottom: 0.5em;
       &.label {font-size: 0.75em; border-left: 1px solid #DDD;}
       &.measure {font-size: 0.8em; font-weight: 600;  }
     }

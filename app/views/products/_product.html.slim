@@ -1,145 +1,38 @@
 <div id="<%= dom_id product %>">
 .row.justify-content-center
   .col-4
-    h2 #{product.manufacturer.name} #{product.model} #{product.displacement}
+    h2 #{product.manufacturer.name} #{product.model} #{product.displacement} #{product.model_code}
+    h3= product.rrp
 
 .row
   //.d-flex.align-items-start
-  .col-lg-2.align-items-start
+  .col-lg-2.align-items-start.side_menu
     .nav.flex-column.nav-pills.me-3#v-pills-tab[role="tablist" aria-orientation="vertical"]
       .nav-link.right.active#v-pills-dimensions-tab[data-bs-toggle="pill" data-bs-target="#v-pills-dimensions" type="button" role="tab" aria-controls="v-pills-dimensions" aria-selected="true"] Dimensions
-      .nav-link#v-pills-engine-tab[data-bs-toggle="pill" data-bs-target="#v-pills-engine" type="button" role="tab" aria-controls="v-pills-engine" aria-selected="false"]Engine
-      .nav-link#v-pills-trans-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-trans"  type="button" role="tab" aria-controls="v-pills-trans"  aria-selected="false"]Transmission
+      .nav-link#v-pills-engine-tab[data-bs-toggle="pill" data-bs-target="#v-pills-engine" type="button" role="tab" aria-controls="v-pills-engine" aria-selected="false"]Engine & Transmission
       .nav-link#v-pills-fuel-tab[data-bs-toggle="pill"   data-bs-target="#v-pills-fuel"   type="button" role="tab" aria-controls="v-pills-fuel"   aria-selected="false"]Fuel
-      .nav-link#v-pills-other-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-other"  type="button" role="tab" aria-controls="v-pills-other"  aria-selected="false"]Others
+      .nav-link#v-pills-wheels-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-wheels"  type="button" role="tab" aria-controls="v-pills-wheels"  aria-selected="false"]Wheels & Tyres
+      .nav-link#v-pills-feature-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-feature"  type="button" role="tab" aria-controls="v-pills-feature"  aria-selected="false"]Features
       .nav-link#v-pills-media-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-media"  type="button" role="tab" aria-controls="v-pills-media"  aria-selected="false"]Media
-      <button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>
+      .nav-link#v-pills-dealer-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-dealer"  type="button" role="tab" aria-controls="v-pills-dealer"  aria-selected="false"]Dealer
 
   .col-lg-10
     .tab-content#v-pills-tabContent
       .tab-pane.fade.show.active#v-pills-dimensions[role="tabpanel" aria-labelledby="v-pills-dimensions-tab" tabindex="0"]
-        = render "product_dimensions_tab", product: @product
+        = render "product_dimensions_tab", product: product
       .tab-pane.fade.show#v-pills-engine[role="tabpanel" aria-labelledby="v-pills-engine-tab" tabindex="0"]
-        = render "product_engine_tab", product: @product
-      .tab-pane.fade.show#v-pills-trans[role="tabpanel" aria-labelledby="v-pills-trans-tab" tabindex="0"]
-        = render "product_trans_tab", product: @product
+        = render "product_engine_tab", product: product
+      .tab-pane.fade.show#v-pills-fuel[role="tabpanel" aria-labelledby="v-pills-fuel-tab" tabindex="0"]
+        = render "product_fuel_tab", product: product
+      .tab-pane.fade.show#v-pills-wheels[role="tabpanel" aria-labelledby="v-pills-wheels-tab" tabindex="0"]
+        = render "product_wheels_tab", product: product
+      .tab-pane.fade.show#v-pills-feature[role="tabpanel" aria-labelledby="v-pills-feature-tab" tabindex="0"]
+        = render "product_feature_tab", product: product
+      .tab-pane.fade.show#v-pills-media[role="tabpanel" aria-labelledby="v-pills-media-tab" tabindex="0"]
+        = render "product_media_tab", product: product
+      .tab-pane.fade.show#v-pills-dealer[role="tabpanel" aria-labelledby="v-pills-dealer-tab" tabindex="0"]
+        = render "product_dealer_tab", product: product
 
 
-      <div class="tab-pane fade" id="v-pills-fuel"   role="tabpanel" aria-labelledby="v-pills-fuel-tab"  tabindex="0">Fuel</div>
-      <div class="tab-pane fade" id="v-pills-other"  role="tabpanel" aria-labelledby="v-pills-other-tab" tabindex="0">Other</div>
-      <div class="tab-pane fade" id="v-pills-media"  role="tabpanel" aria-labelledby="v-pills-media-tab" tabindex="0">Media</div>
-
-
-
-  <p>
-    <strong>Model code:</strong>
-    <%= product.model_code %>
-  </p>
-
-  <p>
-    <strong>Rrp:</strong>
-    <%= product.rrp %>
-  </p>
-
-
-  <p>
-    <strong>Fuel:</strong>
-    <%= product.fuel %>
-  </p>
-
-  <p>
-    <strong>Fuel capacity l:</strong>
-    <%= product.fuel_capacity_l %>
-  </p>
-
-  <p>
-    <strong>Consumption lkm:</strong>
-    <%= product.consumption_lkm %>
-  </p>
-
-  <p>
-    <strong>Range km:</strong>
-    <%= product.range_km %>
-  </p>
-
-  <p>
-    <strong>Drive category:</strong>
-    <%= product.drive_category %>
-  </p>
-
-  <p>
-    <strong>Transmission:</strong>
-    <%= product.transmission %>
-  </p>
-
-  <p>
-    <strong>Clutch:</strong>
-    <%= product.clutch %>
-  </p>
-
-  <p>
-    <strong>Gears:</strong>
-    <%= product.gears %>
-  </p>
-
-  <p>
-    <strong>Tyre front:</strong>
-    <%= product.tyre_front %>
-  </p>
-
-  <p>
-    <strong>Tyre rear:</strong>
-    <%= product.tyre_rear %>
-  </p>
-
-  <p>
-    <strong>Tube:</strong>
-    <%= product.tube %>
-  </p>
-
-  <p>
-    <strong>Tyre category:</strong>
-    <%= product.tyre_category %>
-  </p>
-
-  <p>
-    <strong>Wheel front in:</strong>
-    <%= product.wheel_front_in %>
-  </p>
-
-  <p>
-    <strong>Wheel rear in:</strong>
-    <%= product.wheel_rear_in %>
-  </p>
-
-  <p>
-    <strong>Kerb weight kg:</strong>
-    <%= product.kerb_weight_kg %>
-  </p>
-
-  <p>
-    <strong>Brake front desc:</strong>
-    <%= product.brake_front_desc %>
-  </p>
-
-  <p>
-    <strong>Brake rear desc:</strong>
-    <%= product.brake_rear_desc %>
-  </p>
-
-  <p>
-    <strong>Battery size:</strong>
-    <%= product.battery_size %>
-  </p>
-
-  <p>
-    <strong>Additional features:</strong>
-    <%= product.additional_features %>
-  </p>
-
-  <p>
-    <strong>Data:</strong>
-    <%= product.data %>
-  </p>
 
 </div>

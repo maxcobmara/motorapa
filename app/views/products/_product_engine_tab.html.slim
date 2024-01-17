@@ -11,23 +11,12 @@
   .col-lg.mb-2.measure #{product.cylinders}cyl #{product.cyl_valves}valves pc
   .col-lg.mb-2.label Bore x Stroke
   .col-lg.mb-2.measure #{product.cyl_bore}mm x #{product.cyl_stroke}mm
-
-  <p>
-    <strong>Drive category:</strong>
-    <%= product.drive_category %>
-  </p>
-
-  <p>
-    <strong>Transmission:</strong>
-    <%= product.transmission %>
-  </p>
-
-  <p>
-    <strong>Clutch:</strong>
-    <%= product.clutch %>
-  </p>
-
-  <p>
-    <strong>Gears:</strong>
-    <%= product.gears %>
-  </p>
+  .col-lg.mb-2.label Drive category
+  .col-lg.mb-2.measure #{product.drive_category}
+  .col-lg.mb-2.label Transmission
+  .col-lg.mb-2.measure #{product.transmission}
+  - unless product.clutch.blank?
+    .col-lg.mb-2.label Clutch
+    .col-lg.mb-2.measure #{product.clutch}
+  .col-lg.mb-2.label Gears
+  .col-lg.mb-2.measure #{product.gears}
