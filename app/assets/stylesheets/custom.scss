@@ -3,6 +3,10 @@ $brand-red: #FC0D1B;
 
 body {
   
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
   nav.brand_bar {
     min-height: 3em; text-align: center; padding:0.5em;
     background-color: $brand-red !important;
@@ -39,4 +43,13 @@ body {
       td.measure {text-align:right; }
     }
   }
+}
+
+.footer {
+  margin-top: auto;
+  padding: 1em;
+  font-weight: light; color:#CCC; font-family: 'Satisfy', cursive; font-size: 10pt;
+  .about {text-align: center;}
+  .copy  {text-align: right;}
+  .hire  {text-align: left;}
 }
