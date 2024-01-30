@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+$brand-red: #FC0D1B;
+
 body {
-  padding: 40px 5%;
+  
+  nav.brand_bar {
+    min-height: 3em; text-align: center; padding:0.5em;
+    background-color: $brand-red !important;
+    .navbar-brand {font-family: 'Satisfy'; font-weight: bolder; color: white; font-size: 2.5em;}
+  }
+  
+  .main {padding: 40px 5%;}
   
   .spacer-1 {min-height: 1em;}
   
