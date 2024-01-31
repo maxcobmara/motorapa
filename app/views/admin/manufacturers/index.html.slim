@@ -11,7 +11,7 @@
       - @manufacturers.each do |manufacturer|
         tr
           td= link_to manufacturer.name, admin_manufacturer_path(manufacturer)
-          td= manufacturer.website
+          td= link_to manufacturer.website, "http://#{manufacturer.website}", target: "blank"
           td
             = manufacturer.country
             = ISO3166::Country.find_country_by_alpha2(manufacturer.country).try(:emoji_flag)
