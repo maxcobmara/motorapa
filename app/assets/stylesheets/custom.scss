@@ -8,12 +8,12 @@ body {
   flex-direction: column;
   
   nav.brand_bar {
-    min-height: 3em; text-align: center; padding:0.5em;
+    min-height: 3em; text-align: center; padding:0.35em;
     background-color: $brand-red !important;
-    .navbar-brand {font-family: 'Satisfy'; font-weight: bolder; color: white; font-size: 2.5em;}
+    .navbar-brand {font-family: 'Satisfy'; font-weight: bolder; color: white; font-size: 2em;}
   }
   
-  .main {padding: 40px 5%;}
+  .main {padding: 6em 5% 40px 5%;}
   
   .spacer-1 {min-height: 1em;}
   
