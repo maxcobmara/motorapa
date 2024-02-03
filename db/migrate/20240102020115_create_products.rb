@@ -17,6 +17,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :ground_clearance_mm
       t.string :engine_description
       t.integer :displacement
+      t.integer :topspeed_km
       t.decimal :max_power_ps
       t.integer :max_power_rpm
       t.decimal :max_torque_nm

@@ -29,6 +29,10 @@
     .col-md-4.mb-2
       = form.label :rrp, style: "display: block"
       = form.text_field :rrp, class: "form-control"
+
+    .col-md-4.mb-2
+      = form.label :assembled_in, style: "display: block"
+      = form.text_field :assembled_in, class: "form-control"
       
   .row
     .spacer-1
@@ -120,6 +124,12 @@
 
   .row
     .col-md-2.mb-2
+      = form.label :topspeed_km, style: "display: block"
+      .input-group
+        = form.text_field :topspeed_km, class: "form-control"
+        span.input-group-text km/h
+
+    .col-md-2.mb-2
       = form.label :max_power_ps, style: "display: block"
       .input-group
         = form.text_field :max_power_ps, class: "form-control"
@@ -164,7 +174,7 @@
       = form.label :consumption_lkm, "Consumption", style: "display: block"
       .input-group
         = form.text_field :consumption_lkm, class: "form-control"
-        span.input-group-text L/Km
+        span.input-group-text L/100Km
       
     .col-lg.mb-2
       = form.label :range_km, "Range", style: "display: block"
