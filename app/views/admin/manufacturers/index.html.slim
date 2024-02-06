@@ -1,5 +1,14 @@
 = title(controller_path)
 
+
+.spacer-1
+.spacer-1
+.row
+  .col-md-12.d-flex.flex-wrap
+    - @active_man.each do | man |
+      .data_cloud.flex-fill= link_to man.name, admin_manufacturer_path(man) 
+  
+.spacer-1
 .admin
   table.table.table-hover.table-sm
     thead.table-light

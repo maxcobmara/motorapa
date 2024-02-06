@@ -16,7 +16,6 @@ body {
   .main {padding: 6em 5% 40px 5%;}
   
   .spacer-1 {min-height: 1em;}
-  
   .new_button {font-size: smaller;}
   .btn-action, a:link.btn-action, a:visited.btn-action {margin-top: 0; padding:0 5px; border: 0; }
   .link_right {float:right; margin-top:-1.5em;
@@ -26,6 +25,12 @@ body {
     &.r80 {padding-right: 80%;}
   }
   .right {align-text: right;}
+  
+  .data_cloud {
+    display:inline-block; padding-right:0.5em;
+    a:link, a:visited {color: #AAA; font-weight: 400; text-decoration:none; }
+  }
+    
   
   
   .side_menu {font-size: 0.9em;}
