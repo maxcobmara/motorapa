@@ -1,3 +1,7 @@
+bundle exec rake db:seed:dump
+ create mode 100644 db/development.sqlite3
+ create mode 100644 db/motorapa_development.sqlite3
+ create mode 100644 db/motorapa_test.sqlite3
 
 Motorapa link to HargaMinyak/ Taikun Tayar
 
