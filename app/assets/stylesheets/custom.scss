@@ -32,10 +32,11 @@ body {
   }
   
   .scroller {
+    padding-top: 10%;
     .slick-arrow {background:$brand-red;}
     .cat {
       min-height: 10em;
-      background-color:gray;
+      background-color:#DDD;
       margin:10px;
       .cat-title {padding-left: 10px; position: absolute; bottom:10px; }
     }
