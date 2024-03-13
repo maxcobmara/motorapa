@@ -1,0 +1,29 @@
+<% content_for :for_head do %>
+  <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+  <!-- Add the slick-theme.css if you want default styling -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+<% end %>
+
+
+
+
+<div class="scroller">
+  <% Selector::BIKECAT.each do | cat | %>
+    <div class="cat">
+      <h5 class="cat-title"><%= cat %></h5>
+    </div>
+  <% end %>
+</div>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.scroller').slick({
+        infinite: true,
+        slidesToShow: 5,
+        slidesToScroll: 1
+      });
+    });
+</script>

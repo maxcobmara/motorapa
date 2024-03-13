@@ -8,6 +8,11 @@ Motorapa link to HargaMinyak/ Taikun Tayar
 https://pganalyze.com/blog/postgis-rails-geocoder < geocoding
 
 
+
+Homepage
+what it could be
+
+
 gems to add
 ransack for search
 bullet for links
