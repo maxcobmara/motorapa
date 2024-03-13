@@ -1,6 +1,12 @@
 h1 Products
 
-.products
-  - @products.each do |product| 
-    h2 #{product.manufacturer.name} #{product.model} #{product.displacement} #{product.model_code}
-    p= link_to "Show this product", product
+.row.products
+  .row.row-cols-1.row-cols-md-3.g-4
+    - @products.each do |product| 
+      .col
+        .card
+          <img src="..." class="card-img-top" alt="...">
+          .card-body
+            h5.card-title #{product.manufacturer.name} #{product.model} #{product.model_code}
+            p.card-text Engine Capacity  #{product.displacement}
+            p= link_to "Show this product", product
