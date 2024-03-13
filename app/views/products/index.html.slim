@@ -1,0 +1,6 @@
+h1 Products
+
+.products
+  - @products.each do |product| 
+    h2 #{product.manufacturer.name} #{product.model} #{product.displacement} #{product.model_code}
+    p= link_to "Show this product", product
