@@ -11,9 +11,11 @@
 
 <div class="scroller">
   <% Selector::BIKECAT.each do | cat | %>
-    <div class="cat">
-      <h5 class="cat-title"><%= cat %></h5>
-    </div>
+    <%= link_to products_path(category: cat) do %>
+      <div class="cat">
+        <h5 class="cat-title"><%= cat %></h5>
+      </div>
+    <% end -%>
   <% end %>
 </div>
 
@@ -23,7 +25,7 @@
       $('.scroller').slick({
         centerMode: true,
         centerPadding: '8em',
-        slidesToShow: 5,
+        slidesToShow: 4,
       });
     });
 </script>
