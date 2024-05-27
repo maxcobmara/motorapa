@@ -8,5 +8,9 @@ module DisplayHelper
   def kg_lbs(kg)
     (kg.to_i*2.2).round()
   end
+  
+  def price(rrp) 
+    number_to_currency(rrp, unit: "MYR ", delimiter: ",",  precision: 2)
+  end
 
 end
