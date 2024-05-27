@@ -67,6 +67,6 @@ class Admin::ManufacturersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def manufacturer_params
-      params.require(:manufacturer).permit(:name, :website, :country, :data)
+      params.require(:manufacturer).permit(:name, :website, :country, :logo, :data)
     end
 end

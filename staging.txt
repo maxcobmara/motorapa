@@ -42,3 +42,12 @@ s3service:
   access_key: TK1JBEO0OBIXOG2H3R55
   secret_key: s3epBobDyO560QL9UevSqcGnaL1XKR08AhPizrlQ
   endpoint: https://ap-south-1.linodeobjects.com/odyssey-staging
+  
+  
+dev_keys
+  endpoint: dev-bucket.ap-south-1.linodeobjects.com
+  access_key: 1E65HLLBYUWL6SGV0G0V
+  secret_key: lu3ItHuDfFxXLLgTlynAPgMJBatTtZf9w1s59AQl
+
+  
+  

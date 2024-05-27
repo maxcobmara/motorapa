@@ -11,10 +11,13 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 1.5', '>= 1.5.6'
-#gem "sqlite3", "~> 1.4"
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+gem "image_processing", ">= 1.2"
+gem "aws-sdk-s3", require: false
+
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
@@ -87,4 +90,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "sqlite3", "~> 1.4"
 end
