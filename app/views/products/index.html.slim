@@ -1,12 +1,34 @@
 h1 Products
 
-.row.products
-  .row.row-cols-1.row-cols-md-3.g-4
+.row.products_index
+  .row.row-cols-1.row-cols-md-4.g-4
     - @products.each do |product| 
       .col
         .card
-          <img src="..." class="card-img-top" alt="...">
+          .card-header
+            |  #{product.manufacturer.name}
+            .flag.fright= ISO3166::Country.find_country_by_alpha2(product.manufacturer.country).try(:emoji_flag)
+          - if product.profile_pic.attached?
+            = image_tag product.profile_pic, class: "card-img-top", alt: ""
+          - else 
+            = image_tag "motorapa_drop_in.svg", class: "card-img-top", alt: ""
+            
           .card-body
             h5.card-title #{product.manufacturer.name} #{product.model} #{product.model_code}
-            p.card-text Engine Capacity  #{product.displacement}
-            p= link_to "Show this product", product
+            .row.specs
+              .col-md-5 Capacity
+              .col-md-7 #{product.displacement}cc
+            .row.specs
+              .col-md-5 Cylinders
+              .col-md-7
+                - if product.engine_card.blank?
+                  = product.cylinders 
+                -else 
+                  = product.engine_card
+            .row.specs
+              .col-md-5 Max Power
+              .col-md-7 #{product.max_power_ps}PS@#{product.max_power_rpm}rpm
+            .row.specs
+              .col-md-5 Price
+              .col-md-7= price_s(product.rrp)
+          = link_to "", product, class: "stretched-link"

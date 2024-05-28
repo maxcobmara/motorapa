@@ -12,5 +12,9 @@ module DisplayHelper
   def price(rrp) 
     number_to_currency(rrp, unit: "MYR ", delimiter: ",",  precision: 2)
   end
+  
+  def price_s(rrp) 
+    number_to_currency(rrp, unit: "RM ", delimiter: "",  precision: 0)
+  end
 
 end

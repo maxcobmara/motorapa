@@ -3,7 +3,8 @@
     .breadcrumbs #{link_to "Home", root_path} / #{link_to product.manufacturer.name, manufacturer_path(product.manufacturer_id)} / #{product.model}
     .row.justify-content-center
       .col-6
-        = image_tag @product.profile_pic, style: 'height:auto;width:100%;'
+        - if product.profile_pic.attached?
+          = image_tag @product.profile_pic, style: 'height:auto;width:100%;'
     .row.justify-content-center
       .col-4    
         h2 #{product.manufacturer.name} #{product.model}  #{product.model_code}

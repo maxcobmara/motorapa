@@ -91,6 +91,10 @@
     .col-md-5.mb-2
       = form.label :engine_description, style: "display: block"
       = form.text_field :engine_description, class: "form-control"
+      
+    .col-md-2.mb-2
+      = form.label :engine_card, style: "display: block"
+      = form.text_field :engine_card, class: "form-control"
         
     .col-md-2.mb-2
       = form.label :displacement, style: "display: block"
@@ -289,9 +293,6 @@
     .col-lg.mb-2
       = form.label :additional_features, style: "display: block"
       = form.text_area :additional_features, class: "form-control"
-    .col-lg.mb-2
-      = form.label :data, style: "display: block"
-      = form.text_area :data, class: "form-control"
       
   .actions
     = form.submit class: "btn btn-primary"

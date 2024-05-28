@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   
   validates_presence_of :model,:category, :displacement
   
+  serialize :data, Hash
+  
   def slug_candidates
     [
       [manufacturer.name, model],
@@ -14,6 +16,16 @@ class Product < ApplicationRecord
       [manufacturer.name, model, displacement, Date.today.year]
     ]
   end 
+  
+  
+  def engine_card=(value)
+    data[:engine_card] = value
+  end
+  def engine_card
+    data[:engine_card]
+  end
+  
+  
   
   
   

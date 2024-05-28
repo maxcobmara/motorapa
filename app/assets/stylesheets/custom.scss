@@ -27,6 +27,7 @@ body {
     &.r80 {padding-right: 80%;}
   }
   .right {align-text: right;}
+  .fright {float: right;}
   
   .data_cloud {
     display:inline-block; padding-right:0.5em;
@@ -44,6 +45,15 @@ body {
     }
   }
   .scroller-subtitle {text-align:center;}
+  
+  .products_index {
+    .card-img-top {padding-top:1em; padding-bottom:0.5em;}
+    h5.card-title {border-top: 1px solid black; padding-top:0.5em;}
+    .specs {
+      background-color:#EEEEE0; font-size: 0.7em; font-weight:500; 
+      padding:5px; border-left:solid 8px white; border-right:solid 8px white; border-bottom:solid 5px white; 
+    }
+  }
   
   .products_show {
     h2 {font-weight: 800;}
