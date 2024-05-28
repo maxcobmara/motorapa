@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
+  
+  has_one_attached :profile_pic
   belongs_to :manufacturer
   
   validates_presence_of :model,:category, :displacement

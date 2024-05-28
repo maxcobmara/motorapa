@@ -66,7 +66,7 @@ class Admin::ProductsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(
-        :manufacturer_id, :model, :model_code, :url, :category, :manufacturer_category, :assembled_in, :rrp,
+        :manufacturer_id, :model, :profile_pic, :model_code, :url, :category, :manufacturer_category, :assembled_in, :rrp,
         :seat_height_mm, :wheelbase_mm, :length_mm, :height_mm, :width_mm, :ground_clearance_mm, :kerb_weight_kg, 
         :engine_description, :displacement, :topspeed_km, :max_power_ps, :max_power_rpm, :max_torque_nm, :max_torque_rpm, :cylinders, :cyl_bore, :cyl_stroke, :cyl_valves, :oil_capacity_l,
         :fuel, :fuel_capacity_l, :consumption_lkm, :range_km, :drive_category, :transmission, :clutch, :gears, 

@@ -3,6 +3,11 @@
 
   .spacer-1
   .row
+    .col-md-5.mb-2
+      = form.label :profile_pic
+      = form.file_field :profile_pic, class: "form-control"
+      
+  .row
     .col-md-6.mb-2
       = form.label :manufacturer, style: "display: block"
       = form.collection_select :manufacturer_id, Manufacturer.all, :id, :name, {include_blank: true}, class: "form-select"
@@ -11,6 +16,7 @@
     .col-md-5.mb-2
       = form.label :model, style: "display: block"
       = form.text_field :model, class: "form-control"
+      
       
     .col-md-4.mb-2
       = form.label :model_code, style: "display: block"

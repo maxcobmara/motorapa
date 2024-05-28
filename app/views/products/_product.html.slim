@@ -1,13 +1,18 @@
 <div id="<%= dom_id product %>">
   .products_show
+    .breadcrumbs #{link_to "Home", root_path} / #{link_to product.manufacturer.name, manufacturer_path(product.manufacturer_id)} / #{product.model}
     .row.justify-content-center
-      .col-4
+      .col-6
+        = image_tag @product.profile_pic, style: 'height:auto;width:100%;'
+    .row.justify-content-center
+      .col-4    
         h2 #{product.manufacturer.name} #{product.model}  #{product.model_code}
         h4 #{product.displacement}cc
         h3= price(product.rrp)
         
 
     .row
+      hr
       //.d-flex.align-items-start
       .col-lg-2.align-items-start.side_menu
         .nav.flex-column.nav-pills.me-3#v-pills-tab[role="tablist" aria-orientation="vertical"]
