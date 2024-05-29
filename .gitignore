@@ -33,7 +33,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/master.key.old
 /config/credentials/development.key
+/config/credentials/production.key
 key.txt
 staging.txt
 
@@ -43,3 +45,5 @@ staging.txt
 /node_modules
 
 /config/credentials/development.key
+
+/config/credentials/production.key
