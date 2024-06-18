@@ -16,9 +16,10 @@ class ProductsController < ApplicationController
     @product = Product.friendly.find(params[:id])
   end
   
-  def index_search
+  def search
+    @search_products = Product.ransack(params[:q])
     @q = params[:q]
-    redirect_to products_path(q: @q)  
+    redirect_to products_path(q: @q)  unless params[:q].nil?
   end
 
 end

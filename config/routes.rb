@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :manufacturers, only: [:index, :show]
   resources :products, only: [:index, :show] do
     collection do
-      get :index_search
+      get :search
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
