@@ -1,10 +1,10 @@
-h1 Products
+= render 'index_search'
 
 .row.products_index
   .row.row-cols-1.row-cols-md-4.g-4
     - @products.each do |product| 
       .col
-        .card
+        .card.h-100
           .card-header
             |  #{product.manufacturer.name}
             .flag.fright= ISO3166::Country.find_country_by_alpha2(product.manufacturer.country).try(:emoji_flag)

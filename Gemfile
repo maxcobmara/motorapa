@@ -11,6 +11,7 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 1.5', '>= 1.5.6'
+gem 'ransack', '~> 4.1', '>= 4.1.1'
 
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -27,6 +28,7 @@ gem 'turbo-rails', '~> 1.5'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
+
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"

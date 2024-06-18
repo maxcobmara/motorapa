@@ -1,0 +1,15 @@
+= search_form_for @search_products, url: products_path, class: "form-inline" do |f|
+  .row 
+      .col-sm-2
+        .label License
+        = select_tag('q[license_search]', options_for_select([['B','B'],['B2',"B2"]], selected: :q['license_search']), class: "form-select")
+      .col-sm-2
+        .label Motor Type
+        = select_tag('q[category_eq]', options_for_select(Selector::BIKECAT.collect { |c| [c, c] }, selected: @search_products.category_eq), class: 'form-select')
+      .col-sm-1 
+          .input-group 
+            span.input-group-btn 
+                button.btn.btn-sm.btn-default[type="submit"]
+                    i.fa.fa-search.fa-fw
+            = link_to (content_tag(:i, "", class: 'fas fa-search-minus fa-fw')), products_path, class: "btn btn-sm btn-default"
+  hr
