@@ -1,5 +1,6 @@
 class Admin::ManufacturersController < ApplicationController
   before_action :set_manufacturer, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /manufacturers or /manufacturers.json
   def index

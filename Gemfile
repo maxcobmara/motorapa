@@ -11,7 +11,6 @@ gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 1.5', '>= 1.5.6'
-gem 'ransack', '~> 4.1', '>= 4.1.1'
 
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -47,6 +46,7 @@ gem "jbuilder"
 
 gem 'friendly_id', '~> 5.5', '>= 5.5.1'
 gem 'ransack', '~> 4.1', '>= 4.1.1'
+gem 'devise', '~> 4.9', '>= 4.9.4'
 
 gem 'slim', '~> 5.2'
 gem 'slim-rails', '~> 3.6', '>= 3.6.3'
