@@ -4,7 +4,7 @@
 .admin
   table.table.table-hover.table-sm
     thead.table-light
-      th= sort_link @search, manufacturers_name, "Manufacturer"
+      th= sort_link @search, :manufacturers_name, "Manufacturer"
       th= sort_link @search, :model, "Model" 
       th= sort_link @search, :displacement, "Displacement" 
       th= sort_link @search, :rrp, "Price"  
