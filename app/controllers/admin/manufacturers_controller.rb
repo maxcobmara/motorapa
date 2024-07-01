@@ -4,7 +4,7 @@ class Admin::ManufacturersController < ApplicationController
 
   # GET /manufacturers or /manufacturers.json
   def index
-    @manufacturers = Manufacturer.all
+    @manufacturers = Manufacturer.order(name: :asc)
     @active_man = Manufacturer.where(id: Product.pluck(:manufacturer_id).uniq)
     
   end

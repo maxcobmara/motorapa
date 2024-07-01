@@ -2,4 +2,25 @@
 
 .admin
   - @products.each do |product|
-    p #{product.manufacturer.name} #{product.model} #{product.displacement}  #{link_to "Show", admin_product_path(product)}
+  //p #{product.manufacturer.name} #{product.model} #{product.displacement}  #{link_to "Show", admin_product_path(product)}
+
+
+.spacer-1
+.admin
+  table.table.table-hover.table-sm
+    thead.table-light
+      th Manufacturer
+      th Model
+      th Displacement
+      th Price
+      th
+    tbody.table-group-divider
+      - @products.each do |product|
+        tr
+          td= link_to product.manufacturer.name, admin_manufacturer_path(product.manufacturer)
+          td= link_to product.model, product_path(product)
+          td= product.displacement
+          td= price(product.rrp)
+          td.action
+            = action_link("edit", product, controller_path)
+            = action_link("delete", product, controller_path)
