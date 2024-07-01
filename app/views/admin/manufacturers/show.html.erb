@@ -1,6 +1,9 @@
 <%= render @manufacturer %>
+<%= render "manuproducts" unless @manufacturer.products.blank?  %>
+<%= link_to (content_tag(:i, "", class: 'fas fa-plus') + " Add Bike"), new_admin_product_path, class: "btn btn-outline-dark new_button" %>
 
 <div>
+  <br/> 
   <%= link_to "Edit this manufacturer", edit_admin_manufacturer_path(@manufacturer) %> |
   <%= link_to "Back to manufacturers", admin_manufacturers_path %> |  
   <%= link_to "Destroy this manufacturer", @manufacturer, method: :delete, data: {confirm: 'Are you sure?'} %>

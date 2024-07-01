@@ -1,0 +1,20 @@
+table.table
+  thead
+    tr
+      th Model
+      th Model Code
+      th Category
+      th Man Category
+      th RRP
+      th Engine
+      th Displacement
+  tbody
+    - @manufacturer.products.each do | product |
+      tr
+        td= product.model
+        td= product.model_code
+        td= product.category
+        td= product.manufacturer_category
+        td= product.rrp
+        td= product.engine_card
+        td= product.displacement
