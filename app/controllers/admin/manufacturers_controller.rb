@@ -11,6 +11,8 @@ class Admin::ManufacturersController < ApplicationController
 
   # GET /manufacturers/1 or /manufacturers/1.json
   def show
+    @search = @manufacturer.products.ransack(params[:q])
+    @products = @search.result
   end
 
   # GET /manufacturers/new

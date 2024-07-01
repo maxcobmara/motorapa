@@ -1,18 +1,13 @@
 = title(controller_path)
 
-.admin
-  - @products.each do |product|
-  //p #{product.manufacturer.name} #{product.model} #{product.displacement}  #{link_to "Show", admin_product_path(product)}
-
-
 .spacer-1
 .admin
   table.table.table-hover.table-sm
     thead.table-light
-      th Manufacturer
-      th Model
-      th Displacement
-      th Price
+      th= sort_link @search, manufacturers_name, "Manufacturer"
+      th= sort_link @search, :model, "Model" 
+      th= sort_link @search, :displacement, "Displacement" 
+      th= sort_link @search, :rrp, "Price"  
       th
     tbody.table-group-divider
       - @products.each do |product|

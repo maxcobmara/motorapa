@@ -1,15 +1,15 @@
 table.table
   thead
     tr
-      th Model
-      th Model Code
-      th Category
-      th Man Category
-      th RRP
-      th Engine
-      th Displacement
+      th= sort_link @search, :model, "Model"
+      th= sort_link @search, :model_code, "Model Code"
+      th= sort_link @search, :category, "Category"  
+      th= sort_link @search, :manufacturer_category, "Man Category"   
+      th= sort_link @search, :rrp, "RRP"    
+      th= sort_link @search, :engine_card, "Engine"     
+      th= sort_link @search, :displacement, "Displacement" 
   tbody
-    - @manufacturer.products.each do | product |
+    - @products.each do | product |
       tr
         td= product.model
         td= product.model_code

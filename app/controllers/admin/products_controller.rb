@@ -4,7 +4,9 @@ class Admin::ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @search = Product.ransack(params[:q])
+    @products = @search.result
+    #@search.build_condition
   end
 
   # GET /products/1 or /products/1.json
