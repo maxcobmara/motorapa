@@ -17,7 +17,15 @@ class Product < ApplicationRecord
     ]
   end 
   
-  scope :license_search, -> (q) { where("displacement < ?", 250) if q == "B2"}
+  scope :license_search, -> (q) { 
+    case q
+    when "B2"
+      where("displacement <= ?", 250)
+    when "B"
+      where("displacement > ?", 250)
+    else
+    end
+  }
   
   # ...
  #def self.ransackable_attributes(auth_object = nil)

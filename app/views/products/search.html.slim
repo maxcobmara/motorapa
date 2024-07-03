@@ -3,7 +3,7 @@
     .row.justify-content-center 
       .col-sm-2
         .label License
-        = select_tag('q[license_search]', options_for_select([['B','B'],['B2',"B2"]], selected: :q['license_search']), class: "form-select")
+        = select_tag('q[license_search]', options_for_select([['Any','Any'],['B2',"B2"], ['B','B']], selected: :q['license_search']), class: "form-select")
       .col-sm-2
         .label Motor Type
         = select_tag('q[category_eq]', options_for_select(Selector::BIKECAT.collect { |c| [c, c] }, selected: @search_products.category_eq), class: 'form-select')

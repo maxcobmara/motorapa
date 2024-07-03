@@ -11,7 +11,7 @@ table.table
   tbody
     - @products.each do | product |
       tr
-        td= link_to product.model, product_path(product)
+        td= link_to product.model, admin_product_path(product)
         td= product.model_code
         td= product.category
         td= product.manufacturer_category
