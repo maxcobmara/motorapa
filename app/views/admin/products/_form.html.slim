@@ -172,7 +172,7 @@
   .row.row-cols-1.row-cols-sm-2.row-cols-md-3
     .col-lg.mb-2
       = form.label :fuel, style: "display: block"
-      = form.text_field :fuel, class: "form-control"
+      = form.select :fuel, options_for_select(Selector::FUELCAT.collect { |c| [c, c] }, selected: product.fuel), {}, class: 'form-select'
       
     .col-lg.mb-2
       = form.label :fuel_capacity_l, "Fuel Capacity", style: "display: block"
@@ -200,7 +200,7 @@
   .row.row-cols-1.row-cols-sm-2.row-cols-md-3
     .col-lg.mb-2
       = form.label :drive_category, style: "display: block"
-      = form.text_field :drive_category, class: "form-control"
+      = form.select :drive_category, options_for_select(Selector::DRIVECAT.collect { |c| [c, c] }, selected: product.drive_category), { include_blank: 'Select Drive Category' }, class: 'form-select'
       
     .col-lg.mb-2
       = form.label :transmission, style: "display: block"

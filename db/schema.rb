@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_19_065127) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_10_041322) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -82,9 +82,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_19_065127) do
     t.decimal "oil_capacity_l", precision: 5, scale: 2
     t.string "fuel"
     t.decimal "fuel_capacity_l", precision: 5, scale: 2
-    t.integer "consumption_lkm"
+    t.decimal "consumption_lkm", precision: 5, scale: 2
     t.integer "range_km"
-    t.integer "drive_category"
+    t.string "drive_category"
     t.string "transmission"
     t.string "clutch"
     t.integer "gears"
@@ -104,6 +104,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_19_065127) do
     t.text "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "retired_on"
+    t.date "launched_on"
+    t.integer "created_by"
+    t.integer "updated_by"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 

@@ -7,6 +7,8 @@ class Product < ApplicationRecord
   
   validates_presence_of :model,:category, :displacement
   
+  before_save :calc_range
+  
   serialize :data, Hash
   
   def slug_candidates
@@ -60,6 +62,12 @@ class Product < ApplicationRecord
     elsif query == "B"
       #search for non own group
       Product.all
+    end
+  end
+  
+  def calc_range
+    if fuel_capacity_l.to_f > 0 && consumption_lkm.to_f > 0 && range_km.blank?
+      self.range_km = ((fuel_capacity_l / consumption_lkm)*100).to_i
     end
   end
   

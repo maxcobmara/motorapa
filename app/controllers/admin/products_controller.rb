@@ -25,6 +25,7 @@ class Admin::ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    @product.created_by = current_user.id
 
     respond_to do |format|
       if @product.save
@@ -74,7 +75,7 @@ class Admin::ProductsController < ApplicationController
         :engine_description, :displacement, :topspeed_km, :max_power_ps, :max_power_rpm, :max_torque_nm, :max_torque_rpm, :cylinders, :cyl_bore, :cyl_stroke, :cyl_valves, :oil_capacity_l,
         :fuel, :fuel_capacity_l, :consumption_lkm, :range_km, :drive_category, :transmission, :clutch, :gears, 
         :tyre_front, :tyre_rear, :tube, :tyre_category, :wheel_front_in, :wheel_rear_in, :brake_front_desc, :brake_rear_desc, :suspension_front, :suspension_rear,
-        :battery_size, :additional_features, :engine_card)
+        :battery_size, :additional_features, :engine_card).merge(updated_by: current_user.id)
     end
 end
 
