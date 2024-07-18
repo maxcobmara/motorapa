@@ -1,6 +1,6 @@
 <%= render @manufacturer %>
-<%= render "manuproducts" unless @manufacturer.products.blank?  %>
 <%= link_to (content_tag(:i, "", class: 'fas fa-plus') + " Add Bike"), new_admin_product_path, class: "btn btn-outline-dark new_button" %>
+<%= render "manuproducts" unless @manufacturer.products.blank?  %>
 
 <div>
   <br/> 

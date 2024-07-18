@@ -5,10 +5,9 @@
       - if manufacturer.logo.attached?
         = image_tag manufacturer.logo, style: 'height:150px;width:auto;'
       
-  .row.justify-content-center.deets
-    .col-md-3.align-self-center
+  .row.justify-content-center
+    .col-md-3.align-self-center.deets
       span.flag= ISO3166::Country.find_country_by_alpha2(manufacturer.country).try(:emoji_flag)
-      | &nbsp; &nbsp;
       span.manufacturer_name= link_to manufacturer.name, "https://#{manufacturer.website}", target: "blank"
       
   .row.justify-content-center
