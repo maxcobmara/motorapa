@@ -1,20 +1,22 @@
-table.table
-  thead
-    tr
-      th= sort_link @search, :model, "Model"
-      th= sort_link @search, :model_code, "Model Code"
-      th= sort_link @search, :category, "Category"  
-      th= sort_link @search, :manufacturer_category, "Man Category"   
-      th= sort_link @search, :rrp, "RRP"    
-      th= sort_link @search, :engine_card, "Engine"     
-      th= sort_link @search, :displacement, "Displacement" 
-  tbody
-    - @products.each do | product |
-      tr
-        td= link_to product.model, admin_product_path(product)
-        td= product.model_code
-        td= product.category
-        td= product.manufacturer_category
-        td= product.rrp
-        td= product.engine_card
-        td= product.displacement
+.row
+  .col-md-12
+    table.table
+      thead
+        tr
+          th= sort_link @search, :model, "Model"
+          th= sort_link @search, :model_code, "Model Code"
+          th= sort_link @search, :category, "Category"  
+          th= sort_link @search, :manufacturer_category, "Man Category"   
+          th= sort_link @search, :rrp, "RRP"    
+          th= sort_link @search, :engine_card, "Engine"     
+          th= sort_link @search, :displacement, "Displacement" 
+      tbody
+        - @products.each do | product |
+          tr
+            td= link_to product.model, admin_product_path(product)
+            td= product.model_code
+            td= product.category
+            td= product.manufacturer_category
+            td= product.rrp
+            td= product.engine_card
+            td= product.displacement

@@ -47,6 +47,14 @@ body {
   }
   .scroller-subtitle {text-align:center;}
   
+  
+  .manufacturer {
+    .deets {padding:2em;
+      .flag {font-size:2em;}
+      .manufacturer_name {font-size:1.2em; font-weight:600;}
+    }
+  }
+  
   .products_index {
     .card-img-top {padding-top:1em; padding-bottom:0.5em; height: 14em; width:auto; object-fit: contain;}
     h5.card-title {border-top: 1px solid black; padding-top:0.5em;}
