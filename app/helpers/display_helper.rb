@@ -17,8 +17,8 @@ module DisplayHelper
     number_to_currency(rrp, unit: "RM ", delimiter: "",  precision: 0)
   end
   
-  def sig_zero(value)
-    sprintf('%g', value)
+  def sig_zero(amount=0)
+    sprintf('%g', amount) 
   end  
   
   
