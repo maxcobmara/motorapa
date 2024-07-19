@@ -110,7 +110,10 @@ body {
   margin-top: auto;
   padding: 1em;
   font-weight: light; color:#CCC; font-family: 'Satisfy', cursive; font-size: 10pt;
-  .about {text-align: center;}
-  .copy  {text-align: right;}
-  .hire  {text-align: left;}
+  .hire  {text-align: left; }
+  .about {text-align: center; padding-bottom:1em;}
+  .copy  {text-align: right; }
+  @media (max-width:1024px) {
+    .copy  {text-align: center !important;}
+  }
 }
