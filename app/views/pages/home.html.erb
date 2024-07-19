@@ -13,6 +13,7 @@
   <% Selector::BIKECAT.each do | cat | %>
     <%= link_to products_path(category: cat) do %>
       <div class="cat">
+        <%= image_tag "motorapa_#{cat.parameterize.underscore}.svg", class: "card-img-top", alt: "" %>
         <h5 class="cat-title"><%= cat %></h5>
       </div>
     <% end -%>
