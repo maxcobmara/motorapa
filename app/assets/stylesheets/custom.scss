@@ -54,6 +54,20 @@ body {
       .manufacturer_name {font-size:1.2em; font-weight:600;}
     }
   }
+  .admin_product {
+    .title {
+      padding-top: 20%; 
+      h3 {font-size: 1.2em;}
+      h4 {font-size: 0.8em;}
+    } 
+    table {
+      th {font-size: 0.75em; font-weight:600; width:15em; }
+      td {
+        padding-left: 1.5em;
+        &.measure {}
+      }
+    }
+  }
   
   .products_index {
     .card-img-top {padding-top:1em; padding-bottom:0.5em; height: 14em; width:auto; object-fit: contain;}

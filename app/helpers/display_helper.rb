@@ -16,5 +16,22 @@ module DisplayHelper
   def price_s(rrp) 
     number_to_currency(rrp, unit: "RM ", delimiter: "",  precision: 0)
   end
+  
+  def sig_zero(value)
+    sprintf('%g', value)
+  end  
+  
+  
+  def table_data(object, suffix=0, formatter=0)
+    class_name = "table-danger" if object.blank?
+    #object = "No data" if object.blank?
+    object = object.to_s + " " + suffix.to_s if suffix != 0
+    if formatter!=0
+      content_tag(:td, eval("#{formatter}(#{object})"), class: class_name)
+    else
+      content_tag(:td, object, class: class_name)
+    end
+  end
+  #[class="#{class_names("table-danger": product.engine_card.blank?)}"] = product.engine_card
 
 end

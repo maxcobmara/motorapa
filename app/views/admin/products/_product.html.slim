@@ -1,208 +1,178 @@
-div[id="<%= dom_id product %>"]
-  
-  p
-    - if product.profile_pic.attached?
-      = image_tag product.profile_pic, style: 'height:150px;width:auto;', alt: ""
-    - else 
-      = image_tag "motorapa_drop_in.svg", style: 'height:150px;width:auto;', alt: ""
-    
+.admin_product[id="<%= dom_id product %>"]
 
-  p
-    <strong>Manufacturer:</strong>
-    = product.manufacturer.name
-
-  p
-    <strong>Model:</strong>
-    = product.model
-  
-
-  p
-    <strong>Model code:</strong>
-    = product.model_code
-  
-
-  p
-    <strong>Rrp:</strong>
-    = product.rrp
-  
-
-  p
-    <strong>Seat height mm:</strong>
-    = product.seat_height_mm
-  
-
-  p
-    <strong>Wheelbase mm:</strong>
-    = product.wheelbase_mm
-  
-
-  p
-    <strong>Length mm:</strong>
-    = product.length_mm
-  
-
-  p
-    <strong>Height mm:</strong>
-    = product.height_mm
-  
-
-  p
-    <strong>Width mm:</strong>
-    = product.width_mm
-  
-
-  p
-    <strong>Ground clearance mm:</strong>
-    = product.ground_clearance_mm
-  
-
-  p
-    <strong>Engine description:</strong>
-    = product.engine_description
-  
-
-  p
-    <strong>Displacement:</strong>
-    = product.displacement
-  
-
-  p
-    <strong>Max power ps:</strong>
-    = product.max_power_ps
-  
-
-  p
-    <strong>Max power rpm:</strong>
-    = product.max_power_rpm
-  
-
-  p
-    <strong>Max torque nm:</strong>
-    = product.max_torque_nm
-  
-
-  p
-    <strong>Max torque rpm:</strong>
-    = product.max_torque_rpm
-  
-
-  p
-    <strong>Cylinders:</strong>
-    = product.cylinders
-  
-
-  p
-    <strong>Cyl bore:</strong>
-    = product.cyl_bore
-  
-
-  p
-    <strong>Cyl stroke:</strong>
-    = product.cyl_stroke
-  
-
-  p
-    <strong>Cyl valves:</strong>
-    = product.cyl_valves
-  
-
-  p
-    <strong>Fuel:</strong>
-    = product.fuel
-  
-
-  p
-    <strong>Fuel capacity l:</strong>
-    = product.fuel_capacity_l
-  
-
-  p
-    <strong>Consumption lkm:</strong>
-    = product.consumption_lkm
-  
-
-  p
-    <strong>Range km:</strong>
-    = product.range_km
-  
-
-  p
-    <strong>Drive category:</strong>
-    = product.drive_category
-  
-
-  p
-    <strong>Transmission:</strong>
-    = product.transmission
-  
-
-  p
-    <strong>Clutch:</strong>
-    = product.clutch
-  
-
-  p
-    <strong>Gears:</strong>
-    = product.gears
-  
-
-  p
-    <strong>Tyre front:</strong>
-    = product.tyre_front
-  
-
-  p
-    <strong>Tyre rear:</strong>
-    = product.tyre_rear
-  
-
-  p
-    <strong>Tube:</strong>
-    = product.tube
-  
-
-  p
-    <strong>Tyre category:</strong>
-    = product.tyre_category
-  
-
-  p
-    <strong>Wheel front in:</strong>
-    = product.wheel_front_in
-  
-
-  p
-    <strong>Wheel rear in:</strong>
-    = product.wheel_rear_in
-  
-
-  p
-    <strong>Kerb weight kg:</strong>
-    = product.kerb_weight_kg
-  
-
-  p
-    <strong>Brake front desc:</strong>
-    = product.brake_front_desc
-  
-
-  p
-    <strong>Brake rear desc:</strong>
-    = product.brake_rear_desc
-  
-
-  p
-    <strong>Battery size:</strong>
-    = product.battery_size
-  
-
-  p
-    <strong>Additional features:</strong>
-    = product.additional_features
-  
-
-  p
-    <strong>Data:</strong>
-    = product.data
-  
+  .row 
+    .col-md-4
+      .title
+        h2 #{product.manufacturer.name} #{product.model}  #{product.model_code}
+        h4 #{product.displacement}cc
+        h3= price(product.rrp)
+    .col-md-4
+      - if product.profile_pic.attached?
+        = image_tag product.profile_pic, style: 'height:auto;width:100%;', alt: ""
+      - else 
+        = image_tag "motorapa_drop_in.svg", style: 'height:auto;width:100%;', alt: ""
+     
+  .spacer-1
+  .row
+    .col-md-12
+      = link_to "<< Back to products", admin_products_path 
+      | &nbsp; | &nbsp; 
+      = link_to "Edit this product", edit_admin_product_path(@product)
+  .row
+    table.table.table-striped.table-sm.table-bordered
+      tr
+        th Manufacturer:
+        td = product.manufacturer.name
+      tr
+        th Model:
+        td = product.model
+      tr
+        th Model Code:
+        = table_data(product.model_code)
+      tr
+        th Category:
+        = table_data(product.category)
+      tr
+        th Man Category
+        = table_data(product.manufacturer_category)
+      tr
+        th Engine
+        = table_data(product.engine_card)
+      tr
+        th Displacement
+        = table_data(product.displacement, "cc")
+      tr
+        th Manufacturer:
+        td = product.manufacturer.name
+      tr
+        th Rrp:
+        = table_data(product.rrp, "", "price")
+        
+      // Dimensions  
+      tr
+        th[colspan=2] Dimensions
+      tr
+        th Length (mm):
+        = table_data(product.length_mm)
+      tr
+        th Width (mm):
+        = table_data(product.width_mm)
+      tr
+        th Height (mm):
+        = table_data(product.height_mm)
+      tr
+        th Seat height (mm):
+        = table_data(product.seat_height_mm)
+      tr
+        th Wheelbase (mm):
+        = table_data(product.wheelbase_mm)
+      tr
+        th Ground clearance (mm):
+        = table_data(product.ground_clearance_mm)
+      tr
+        th Kerb Weight (Kgs):
+        = table_data(product.kerb_weight_kg)
+      tr
+        th Battery size :
+        = table_data(product.battery_size)
+        
+      // Engine  
+      tr
+        th[colspan=2] Engine
+      tr
+        th Engine description:
+        = table_data(product.engine_description)
+      tr
+        th Displacement:
+        = table_data(product.displacement, "cc")
+      tr
+        th Max power (PS):
+        = table_data(product.max_power_ps, "HP")
+      tr
+        th Max power rpm:
+        = table_data(product.max_power_rpm, "rpm")
+      tr
+        th Max torque (Nm):
+        = table_data(product.max_torque_nm, "Nm")
+      tr
+        th Max torque rpm:
+        = table_data(product.max_torque_rpm, "rpm")  
+      tr
+        th Cylinders:
+        = table_data(product.cylinders)  
+      tr
+        th Bore (mm):
+        = table_data(product.cyl_bore)  
+      tr
+        th Stroke (mm):
+        = table_data(product.cyl_stroke)  
+      tr
+        th Valves per Cylinder:
+        = table_data(product.cyl_valves)
+        
+      // Fuel  
+      tr
+        th[colspan=2] Fuel
+      tr
+        th Fuel:
+        = table_data(product.fuel)
+      tr
+        th Fuel capacity (litres):
+        = table_data(product.fuel_capacity_l, "", "sig_zero")
+      tr
+        th Consumption:
+        = table_data(product.consumption_lkm, "l/100km")
+      tr
+        th Range (Km):
+        = table_data(product.range_km)
+        
+      tr
+        th[colspan=2] Drivetrain
+      tr
+        th Drive:
+        = table_data(product.drive_category)
+      tr
+        th Transmission:
+        = table_data(product.transmission)
+      tr
+        th Clutch:
+        = table_data(product.clutch)
+      tr
+        th Gears:
+        = table_data(product.gears) 
+        
+      // Tyres
+      tr
+        th[colspan=2] Tyres, Wheels
+      tr
+        th Tyre (Front):
+        = table_data(product.tyre_front)
+      tr
+        th Tyre (rear):
+        = table_data(product.tyre_rear)
+      tr
+        th Tube:
+        = table_data(product.tube)
+      tr
+        th Tyre Category:
+        = table_data(product.tyre_category)
+      tr
+        th Wheel Front (inches):
+        = table_data(product.wheel_front_in)
+      tr
+        th Wheel Rear (inches):
+        = table_data(product.wheel_rear_in)
+      tr
+        th Brakes (Front):
+        = table_data(product.brake_front_desc)
+      tr
+        th Brakes (Rear):
+        = table_data(product.brake_rear_desc)
+        
+      // Features
+      tr
+        th[colspan=2] Features
+      tr
+        th Additional Features:
+        = table_data(product.additional_features) 
 
