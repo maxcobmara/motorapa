@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
     @search_products = Product.ransack(params[:q])
     if params[:category]
       @products = Product.where(category: params[:category])
+      @search_products = @products.ransack(params[:q])
+      @products = @search_products.result
     else
       @products = @search_products.result
     end

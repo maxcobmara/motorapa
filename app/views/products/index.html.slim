@@ -1,5 +1,8 @@
 //#= render 'index_search'
 
+= sort_link @search_products, :displacement, "Sort by cc" 
+= sort_link @search_products, :rrp, "Sort by Price"  
+
 .row.products_index
   .row.row-cols-1.row-cols-md-4.g-4
     - @products.each do |product| 
