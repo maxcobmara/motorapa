@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   
   before_save :calc_range
   
+  
   serialize :data, Hash
   
   def slug_candidates
@@ -71,8 +72,47 @@ class Product < ApplicationRecord
     end
   end
   
+  #strip commas from fields
+  def rrp=(rrp)
+     self[:rrp] = rrp.to_s.tr('^0-9.-', '')
+  end
+  
+  def length_mm=(length_mm)
+     self[:length_mm] = length_mm.to_s.tr('^0-9.-', '')
+  end
+  
+  def height_mm=(height_mm)
+     self[:height_mm] = height_mm.to_s.tr('^0-9.-', '')
+  end
+  
+  def wheelbase_mm=(wheelbase_mm)
+     self[:wheelbase_mm] = wheelbase_mm.to_s.tr('^0-9.-', '')
+  end
+  
+  def max_power_rpm=(max_power_rpm)
+     self[:max_power_rpm] = max_power_rpm.to_s.tr('^0-9.-', '')
+  end
+  def max_torque_rpm=max_torque_rpm
+     self[:max_torque_rpm] = max_torque_rpm.to_s.tr('^0-9.-', '')
+  end
   
   
   
+  
+  
+  #strip whitespace
+  def tyre_front=(tyre_front)
+     self[:tyre_front] = tyre_front.gsub(" ", "")
+  end
+  
+  def tyre_rear=(tyre_rear)
+     self[:tyre_rear] = tyre_rear.gsub(" ", "")
+  end
+  
+  
+  
+  
+
+
   
 end
