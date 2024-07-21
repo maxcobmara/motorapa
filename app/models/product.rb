@@ -78,17 +78,17 @@ class Product < ApplicationRecord
   def rrp=(rrp)
      self[:rrp] = rrp.to_s.tr('^0-9.-', '')
   end
-  
   def length_mm=(length_mm)
      self[:length_mm] = length_mm.to_s.tr('^0-9.-', '')
   end
-  
   def height_mm=(height_mm)
      self[:height_mm] = height_mm.to_s.tr('^0-9.-', '')
   end
-  
   def wheelbase_mm=(wheelbase_mm)
      self[:wheelbase_mm] = wheelbase_mm.to_s.tr('^0-9.-', '')
+  end
+  def displacement=(displacement)
+     self[:displacement] = displacement.to_s.tr('^0-9.-', '')
   end
   
   def max_power_rpm=(max_power_rpm)
