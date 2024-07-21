@@ -70,6 +70,17 @@ body {
   }
   
   .products_index {
+    .sorter {
+      margin-bottom: -2em;
+      a {
+        text-decoration: none; color: #222;
+        &:hover { color: $brand-red;}
+        &:active { color: $brand-red;}
+        
+      }
+      .sort-link {padding-right:0.7em; padding-left:0.7em; border-right: solid 2px #CCC; font-size: 0.9em;}
+    }
+    
     .card-img-top {padding-top:1em; padding-bottom:0.5em; height: 14em; width:auto; object-fit: contain;}
     h5.card-title {border-top: 1px solid black; padding-top:0.5em;}
     .specs {

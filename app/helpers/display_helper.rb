@@ -14,7 +14,7 @@ module DisplayHelper
   end
   
   def price_s(rrp) 
-    number_to_currency(rrp, unit: "RM ", delimiter: "",  precision: 0)
+    number_to_currency(rrp, unit: "RM ", delimiter: ",",  precision: 0)
   end
   
   def sig_zero(amount=0)

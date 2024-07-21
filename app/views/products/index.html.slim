@@ -1,10 +1,19 @@
 //#= render 'index_search'
 
-= sort_link @search_products, :displacement, "Sort by cc" 
-= sort_link @search_products, :rrp, "Sort by Price"  
-
 .row.products_index
-  .row.row-cols-1.row-cols-md-4.g-4
+
+  .row.sorter
+    .col-1.label <i class="fa-solid fa-sort"></i> Sort by 
+    .col-11.sort 
+      = sort_link @search_products, :displacement, "Capacity (cc)", class: "sort-link"
+      = sort_link @search_products, :cylinders, "Engine", class: "sort-link"
+      = sort_link @search_products, :max_power_ps, "Power", class: "sort-link"
+      = sort_link @search_products, :fuel_capacity_l, "Fuel Capacity", class: "sort-link"
+      = sort_link @search_products, :seat_height_mm, "Seat Height", class: "sort-link"
+      = sort_link @search_products, :rrp, "Price", class: "sort-link"
+    
+    
+  .row.row-cols-1.row-cols-md-2.row-cols-lg-3.row-cols-xl-4.g-4
     - @products.each do |product| 
       .col
         .card.h-100
@@ -19,19 +28,29 @@
           .card-body
             h5.card-title #{product.model} #{product.model_code}
             .row.specs
-              .col-md-5 Capacity
-              .col-md-7 #{product.displacement}cc
+              .col-5 Capacity
+              .col-7 #{product.displacement}cc
             .row.specs
-              .col-md-5 Cylinders
-              .col-md-7
+              .col-5 Engine
+              .col-7
                 - if product.engine_card.blank?
                   = product.cylinders 
                 -else 
                   = product.engine_card
             .row.specs
-              .col-md-5 Max Power
-              .col-md-7 #{product.max_power_ps}PS@#{product.max_power_rpm}rpm
+              .col-5 Max Power
+              .col-7 #{product.max_power_ps}hp
             .row.specs
-              .col-md-5 Price
-              .col-md-7= price_s(product.rrp)
+              .col-5 Fuel 
+              .col-7 
+                - unless product.fuel_capacity_l.nil?
+                  | #{sig_zero(product.fuel_capacity_l.to_f)} litres
+            .row.specs
+              .col-5 Seat Height 
+              .col-7 
+                - unless product.seat_height_mm.nil?
+                  | #{product.seat_height_mm}mm / #{mm_in(product.seat_height_mm)}"
+            .row.specs
+              .col-5 Price
+              .col-7= price_s(product.rrp)
           = link_to "", product, class: "stretched-link"
