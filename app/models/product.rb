@@ -37,7 +37,7 @@ class Product < ApplicationRecord
  # ...
  
   def self.ransackable_attributes(auth_object = nil)
-    ["category", "displacement", "license_search", "manufacturer_id", "rrp", "model", "product_manufacturer", "cylinders", 
+    ["category", "displacement", "license_search", "manufacturer_id", "rrp", "model", "manufacturers.name", "cylinders", 
      "max_power_ps", "fuel_capacity_l", "seat_height_mm"]
   end
   

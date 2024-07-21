@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_10_041322) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_21_112918) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,7 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_10_041322) do
 
   create_table "products", force: :cascade do |t|
     t.string "slug", null: false
-    t.string "manufacturer_id"
+    t.integer "manufacturer_id"
     t.string "category"
     t.string "manufacturer_category"
     t.string "model"
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_10_041322) do
     t.integer "width_mm"
     t.integer "ground_clearance_mm"
     t.string "engine_description"
-    t.integer "displacement"
+    t.decimal "displacement", precision: 5, scale: 1
     t.integer "topspeed_km"
     t.decimal "max_power_ps"
     t.integer "max_power_rpm"
@@ -108,6 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_10_041322) do
     t.date "launched_on"
     t.integer "created_by"
     t.integer "updated_by"
+    t.string "cooling"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
