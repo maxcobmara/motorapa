@@ -3,7 +3,7 @@
 .row.products_index
 
   .row.sorter
-    .col-1.label <i class="fa-solid fa-sort"></i> Sort by 
+    .col-1.label Sort by <i class="fa-solid fa-sort"></i> 
     .col-11.sort 
       = sort_link @search_products, :displacement, "Capacity (cc)", class: "sort-link"
       = sort_link @search_products, :cylinders, "Engine", class: "sort-link"
