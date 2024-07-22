@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   
   get "/landing", to: "pages#home"
-  #root to: "pages#home"
-  root to: "pages#coming_soon"
+  root to: "pages#home"
+  #root to: "pages#coming_soon"
   
 end
