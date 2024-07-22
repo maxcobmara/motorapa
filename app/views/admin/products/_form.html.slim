@@ -87,45 +87,48 @@
     h6 Engine & Power
     hr
 
-  .row
-    .col-md-5.mb-2
-      = form.label :engine_description, style: "display: block"
-      = form.text_field :engine_description, class: "form-control"
-      
-    .col-md-2.mb-2
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :engine_card, style: "display: block"
-      = form.text_field :engine_card, class: "form-control"
-        
-    .col-md-2.mb-2
+      = form.text_field :engine_card, class: "form-control" 
+             
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :displacement, style: "display: block"
       .input-group
         = form.text_field :displacement, class: "form-control"
         span.input-group-text cc
-      
+    
     .col-md-2.mb-2
+      = form.label :cylinders, style: "display: block"
+      = form.text_field :cylinders, class: "form-control"
+      
+    .col-lg-6.col-md-8.col-sm-12.mb-2
+      = form.label :engine_description, style: "display: block"
+      = form.text_field :engine_description, class: "form-control"
+      
+    .col-md-4.mb-2
+      = form.label :cooling, style: "display: block"
+      = form.text_field :cooling, class: "form-control"
+      
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :oil_capacity_l, "Oil Capacity", style: "display: block"
       .input-group
         = form.text_field :oil_capacity_l, class: "form-control"
         span.input-group-text Litres
 
-  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
-    .col-lg.mb-2
-      = form.label :cylinders, style: "display: block"
-      = form.text_field :cylinders, class: "form-control"
-        
-    .col-lg.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :cyl_bore, "Bore", style: "display: block"
       .input-group
         = form.text_field :cyl_bore, class: "form-control"
         span.input-group-text mm
         
-    .col-lg.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :cyl_stroke, "Stroke", style: "display: block"
       .input-group
         = form.text_field :cyl_stroke, class: "form-control"
         span.input-group-text mm
 
-    .col-lg.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :cyl_valves, "Valves", style: "display: block"
       .input-group
         = form.text_field :cyl_valves, class: "form-control"
@@ -133,32 +136,32 @@
         
 
   .row
-    .col-md-2.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :topspeed_km, style: "display: block"
       .input-group
         = form.text_field :topspeed_km, class: "form-control"
         span.input-group-text km/h
 
-    .col-md-2.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :max_power_ps, style: "display: block"
       .input-group
         = form.text_field :max_power_ps, class: "form-control"
         span.input-group-text PS at
         
-    .col-md-2.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :max_power_rpm, style: "display: block"
       .input-group
         = form.text_field :max_power_rpm, class: "form-control"
         span.input-group-text RPM 
         
         
-    .col-md-2.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :max_torque_nm, style: "display: block"
       .input-group
         = form.text_field :max_torque_nm, class: "form-control"
         span.input-group-text Nm at
         
-    .col-md-2.mb-2
+    .col-lg-2.col-md-4.col-sm-6.mb-2
       = form.label :max_torque_rpm, style: "display: block"
       .input-group
         = form.text_field :max_torque_rpm, class: "form-control"
