@@ -3,13 +3,16 @@
 .row.products_index
 
   .row.sorter
-    .col-1.label Sort by <i class="fa-solid fa-sort"></i> 
-    .col-11.sort 
+    .col-2.label 
+      = link_to (content_tag(:i, "", class: 'fa-solid fa-house') + "  |  "), "/landing", title: "Home"
+      | Sort by <i class="fa-solid fa-sort"></i> 
+    .col-10.sort
       = sort_link @search_products, :displacement, "Capacity (cc)", class: "sort-link"
       = sort_link @search_products, :cylinders, "Engine", class: "sort-link"
       = sort_link @search_products, :max_power_ps, "Power", class: "sort-link"
       = sort_link @search_products, :fuel_capacity_l, "Fuel Capacity", class: "sort-link"
       = sort_link @search_products, :seat_height_mm, "Seat Height", class: "sort-link"
+      = sort_link @search_products, :manufacturer_name, "Manufacturer", class: "sort-link"
       = sort_link @search_products, :rrp, "Price", class: "sort-link"
     
     
