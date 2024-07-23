@@ -4,8 +4,8 @@
 
   .row.sorter
     .col-2.label 
-      = link_to (content_tag(:i, "", class: 'fa-solid fa-house') + "  |  "), "/landing", title: "Home"
-      | Sort by <i class="fa-solid fa-sort"></i> 
+      = link_to (content_tag(:i, "", class: 'fa-solid fa-house') + ""), root_path, title: "Home"
+      | &nbsp;  &nbsp; | &nbsp; Sort by <i class="fa-solid fa-sort"></i> 
     .col-10.sort
       = sort_link @search_products, :displacement, "Capacity (cc)", class: "sort-link"
       = sort_link @search_products, :cylinders, "Engine", class: "sort-link"

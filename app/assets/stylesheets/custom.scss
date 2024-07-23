@@ -90,6 +90,7 @@ body {
   }
   
   .products_show {
+    .profile_picture {height:auto; width:100%; margin:auto; max-height:40vh; object-fit: contain;}
     h2 {font-weight: 800;}
     h3 {font-size: 1.2em; margin-top: 0.5em; font-weight: 700; float:right;}
     h4 {font-size: 0.8em; margin-top: -0.8em; }

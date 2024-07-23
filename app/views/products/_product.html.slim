@@ -2,11 +2,11 @@
   .products_show
     .breadcrumbs #{link_to "Home", root_path} / #{link_to product.manufacturer.name, manufacturer_path(product.manufacturer_id)} / #{product.model}
     .row.justify-content-center
-      .col-6
+      .col-sm-12.col-lg-6
         - if product.profile_pic.attached?
-          = image_tag @product.profile_pic, style: 'height:auto;width:100%;'
+          = image_tag @product.profile_pic, class: "profile_picture"
     .row.justify-content-center
-      .col-4    
+      .col-sm-12.col-lg-6   
         h2 #{product.manufacturer.name} #{product.model}  #{product.model_code}
         h4 #{product.displacement}cc
         h3= price(product.rrp)
