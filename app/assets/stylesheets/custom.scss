@@ -90,6 +90,13 @@ body {
   }
   
   .products_show {
+    .breadcrumbs {
+      text-decoration: none; color: #CCC; font-weight:600;
+      a {text-decoration: none; color: #CCC; font-weight:600; padding-left: 1em; padding-right: 1em;
+        &:hover { color: $brand-red;}
+        &:active { color: $brand-red;}  
+      }
+    }
     .profile_picture {height:auto; width:100%; margin:auto; max-height:40vh; object-fit: contain;}
     h2 {font-weight: 800;}
     h3 {font-size: 1.2em; margin-top: 0.5em; font-weight: 700; float:right;}

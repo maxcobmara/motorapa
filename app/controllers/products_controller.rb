@@ -7,6 +7,11 @@ class ProductsController < ApplicationController
       @products = Product.where(category: params[:category])
       @search_products = @products.ransack(params[:q])
       @products = @search_products.result
+    elsif params[:manufacturer]
+      manufacturer = Manufacturer.find_by_name(params[:manufacturer]).id      
+      @products = Product.where(manufacturer_id: manufacturer)
+      @search_products = @products.ransack(params[:q])
+      @products = @search_products.result
     else
       @products = @search_products.result
     end
