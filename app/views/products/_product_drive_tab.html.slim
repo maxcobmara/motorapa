@@ -1,0 +1,32 @@
+.row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
+  - if product.drive_category.present?
+    .col-lg.mb-2.label Final Drive
+    .col-lg.mb-2.measure #{product.drive_category}
+  - if product.transmission.present?
+    .col-lg.mb-2.label Transmission
+    .col-lg.mb-2.measure #{product.transmission}
+  - if product.clutch.present?
+    .col-lg.mb-2.label Clutch
+    .col-lg.mb-2.measure #{product.clutch}
+  - if product.gears.present?
+    .col-lg.mb-2.label Gears
+    .col-lg.mb-2.measure #{product.gears}
+    
+  - if product.brake_front_desc.present?
+    .col-lg.mb-2.label Brake, Front
+    .col-lg.mb-2.measure #{product.brake_front_desc}
+  - if product.brake_rear_desc.present?
+    .col-lg.mb-2.label Brake, Rear
+    .col-lg.mb-2.measure #{product.brake_rear_desc}
+    
+
+
+  - if product.suspension_front.present?
+    .col-lg.mb-2.label Suspension, Front
+    .col-lg.mb-2.measure #{product.suspension_front}
+  - if product.suspension_rear.present?
+    .col-lg.mb-2.label Suspension, Rear
+    .col-lg.mb-2.measure #{product.suspension_rear}
+    
+    //.col-lg-3.col-md-6.col-sm-8.mb-2
+

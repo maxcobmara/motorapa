@@ -4,7 +4,7 @@
       = link_to (content_tag(:i, "", class: 'fa-solid fa-house fa-lg') + ""), root_path, title: "Home"
       | / 
       = link_to (content_tag(:i, "", class: 'fa-solid fa-motorcycle fa-lg') + ""), products_path, title: "All Motorcycles"
-      | / #{link_to product.manufacturer.name, products_path(manufacturer: product.manufacturer.name)} / #{product.model}
+      | / #{link_to product.manufacturer.name, products_path(manufacturer: product.manufacturer.name)} / &nbsp; #{product.model}
     .row.justify-content-center
       .col-sm-12.col-lg-6
         - if product.profile_pic.attached?
@@ -12,40 +12,59 @@
     .row.justify-content-center
       .col-sm-12.col-lg-6   
         h2 #{product.manufacturer.name} #{product.model}  #{product.model_code}
-        h4 #{product.displacement}cc
-        h3= price(product.rrp)
+        h4 #{sig_zero(product.displacement)} cc
+        h3 = price(product.rrp)
         
 
     .row
       hr
-      //.d-flex.align-items-start
-      .col-lg-2.align-items-start.side_menu
-        .nav.flex-column.nav-pills.me-3#v-pills-tab[role="tablist" aria-orientation="vertical"]
-          .nav-link.right.active#v-pills-dimensions-tab[data-bs-toggle="pill" data-bs-target="#v-pills-dimensions" type="button" role="tab" aria-controls="v-pills-dimensions" aria-selected="true"] Dimensions
-          .nav-link#v-pills-engine-tab[data-bs-toggle="pill" data-bs-target="#v-pills-engine" type="button" role="tab" aria-controls="v-pills-engine" aria-selected="false"]Engine & Transmission
-          .nav-link#v-pills-fuel-tab[data-bs-toggle="pill"   data-bs-target="#v-pills-fuel"   type="button" role="tab" aria-controls="v-pills-fuel"   aria-selected="false"]Fuel
-          .nav-link#v-pills-wheels-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-wheels"  type="button" role="tab" aria-controls="v-pills-wheels"  aria-selected="false"]Wheels & Tyres
-          .nav-link#v-pills-feature-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-feature"  type="button" role="tab" aria-controls="v-pills-feature"  aria-selected="false"]Features
-          .nav-link#v-pills-media-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-media"  type="button" role="tab" aria-controls="v-pills-media"  aria-selected="false"]Media
-          .nav-link#v-pills-dealer-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-dealer"  type="button" role="tab" aria-controls="v-pills-dealer"  aria-selected="false"]Dealer
+      .accordion#product_data
+        .accordion-item
+          h2.accordian-header
+            button.accordion-button[data-bs-target="#specifications" aria-expanded="true" aria-controls="specifications"]
+              | Specifications
+          #specifications.accordian-collapse.show[data-bs-parent="#product_data"]
+            .accordion-body
 
-      .col-lg-10
-        .tab-content#v-pills-tabContent
-          .tab-pane.fade.show.active#v-pills-dimensions[role="tabpanel" aria-labelledby="v-pills-dimensions-tab" tabindex="0"]
-            = render "product_dimensions_tab", product: product
-          .tab-pane.fade.show#v-pills-engine[role="tabpanel" aria-labelledby="v-pills-engine-tab" tabindex="0"]
-            = render "product_engine_tab", product: product
-          .tab-pane.fade.show#v-pills-fuel[role="tabpanel" aria-labelledby="v-pills-fuel-tab" tabindex="0"]
-            = render "product_fuel_tab", product: product
-          .tab-pane.fade.show#v-pills-wheels[role="tabpanel" aria-labelledby="v-pills-wheels-tab" tabindex="0"]
-            = render "product_wheels_tab", product: product
-          .tab-pane.fade.show#v-pills-feature[role="tabpanel" aria-labelledby="v-pills-feature-tab" tabindex="0"]
-            = render "product_feature_tab", product: product
-          .tab-pane.fade.show#v-pills-media[role="tabpanel" aria-labelledby="v-pills-media-tab" tabindex="0"]
-            = render "product_media_tab", product: product
-          .tab-pane.fade.show#v-pills-dealer[role="tabpanel" aria-labelledby="v-pills-dealer-tab" tabindex="0"]
-            = render "product_dealer_tab", product: product
+              //.d-flex.align-items-start
+              .nav.justify-content-center.nav-tabs
+                .nav-link.right.active#v-pills-dimensions-tab[data-bs-toggle="pill" data-bs-target="#v-pills-dimensions" type="button" role="tab" aria-controls="v-pills-dimensions" aria-selected="true"] Dimensions
+                .nav-link#v-pills-engine-tab[data-bs-toggle="pill" data-bs-target="#v-pills-engine" type="button" role="tab" aria-controls="v-pills-engine" aria-selected="false"]Engine
+                .nav-link#v-pills-drive-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-drive"  type="button" role="tab" aria-controls="v-pills-drive"  aria-selected="false"]Drivetrain
+                .nav-link#v-pills-fuel-tab[data-bs-toggle="pill"   data-bs-target="#v-pills-fuel"   type="button" role="tab" aria-controls="v-pills-fuel"   aria-selected="false"]Fuel
+                .nav-link#v-pills-wheels-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-wheels"  type="button" role="tab" aria-controls="v-pills-wheels"  aria-selected="false"]Wheels & Tyres
+                - if product.assembled_in.present? || product.additional_features.present?
+                  .nav-link#v-pills-feature-tab[data-bs-toggle="pill"  data-bs-target="#v-pills-feature"  type="button" role="tab" aria-controls="v-pills-feature"  aria-selected="false"]Features
+ 
 
+              .tab-content#v-pills-tabContent
+                .tab-pane.fade.show.active#v-pills-dimensions[role="tabpanel" aria-labelledby="v-pills-dimensions-tab" tabindex="0"]
+                  = render "product_dimensions_tab", product: product
+                .tab-pane.fade.show#v-pills-engine[role="tabpanel" aria-labelledby="v-pills-engine-tab" tabindex="0"]
+                  = render "product_engine_tab", product: product
+                .tab-pane.fade.show#v-pills-drive[role="tabpanel" aria-labelledby="v-pills-drive-tab" tabindex="0"]
+                  = render "product_drive_tab", product: product
+                .tab-pane.fade.show#v-pills-fuel[role="tabpanel" aria-labelledby="v-pills-fuel-tab" tabindex="0"]
+                  = render "product_fuel_tab", product: product
+                .tab-pane.fade.show#v-pills-wheels[role="tabpanel" aria-labelledby="v-pills-wheels-tab" tabindex="0"]
+                  = render "product_wheels_tab", product: product
+                .tab-pane.fade.show#v-pills-feature[role="tabpanel" aria-labelledby="v-pills-feature-tab" tabindex="0"]
+                  = render "product_feature_tab", product: product
 
-
-</div>
+                  
+        .accordion-item
+          h2.accordian-header
+            button.accordion-button[type="button" data-bs-toggle="collapse" data-bs-target="#media" aria-expanded="true" aria-controls="media"]
+              | Media
+          #media.accordian-collapse.collapse[data-bs-parent="#product_data"]
+            .accordion-body
+              = render "product_media_tab", product: product
+            
+                  
+        .accordion-item
+          h2.accordian-header
+            button.accordion-button[type="button" data-bs-target="#dealers" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dealers"]
+              | Where to Buy
+          #dealers.accordian-collapse.collapse[data-bs-parent="#product_data"]
+            .accordion-body
+              = render "product_dealer_tab", product: product

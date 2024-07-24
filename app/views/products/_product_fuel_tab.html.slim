@@ -1,11 +1,15 @@
 .row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
-  .col-lg.mb-2.label Fuel
-  .col-lg.mb-2.measure #{product.fuel}
-  .col-lg.mb-2.label Fuel Capacity 
-  .col-lg.mb-2.measure #{product.fuel_capacity_l} litres
-  - unless product.consumption_lkm.blank?
+  - if product.consumption_lkm.present?
+    .col-lg.mb-2.label Fuel
+    .col-lg.mb-2.measure #{product.fuel}
+  - if product.consumption_lkm.present?
+    .col-lg.mb-2.label Fuel Capacity 
+    .col-lg.mb-2.measure #{product.fuel_capacity_l} litres
+  - if product.consumption_lkm.present?
     .col-lg.mb-2.label Consumption
     .col-lg.mb-2.measure #{product.consumption_lkm} l/km
-  - unless product.range_km.blank?
+  - if product.range_km.present?
     .col-lg.mb-2.label Range
     .col-lg.mb-2.measure #{product.range_km} km
+    
+    

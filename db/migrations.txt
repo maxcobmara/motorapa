@@ -44,7 +44,8 @@ Rails g scaffold Manufacturer name:string website:string country:string data:tex
 
 pictures
 
-rails g migration Media product_id:integer media_category:string url:string
+rails g migration media mediable_id:integer mediable_type:string source:string url:string name:string description:string data:text
+#save json of returned via api""
 
 rails g migration Dealer name:string address:string street:string city:string poskod:string state:string longditude:decimal latitude:decimal status:string <- none/basic/bike
 

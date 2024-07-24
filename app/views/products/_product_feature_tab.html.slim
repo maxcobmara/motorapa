@@ -1,8 +1,7 @@
 .row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
-  h3 Features
-  - unless product.additional_features.blank?
-    .col-lg.mb-2.label Features
+  - if product.assembled_in.present?
+    .col-lg.mb-2.label Assembled in
+    .col-lg.mb-2.measure #{product.assembled_in}
+  - if product.additional_features.present?
+    .col-lg.mb-2.label Feature
     .col-lg.mb-2.measure #{product.additional_features}
-  - unless product.data.blank?
-    .col-lg.mb-2.label Data
-    .col-lg.mb-2.measure #{product.data}

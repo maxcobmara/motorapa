@@ -1,19 +1,26 @@
-.row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
-  .col-lg.mb-2.label Wheel, Front
-  .col-lg.mb-2.measure #{product.wheel_front_in}in
-  .col-lg.mb-2.label Wheel, Front
-  .col-lg.mb-2.measure #{product.wheel_rear_in} litres
+.row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-8.spec_row
+  - if product.wheel_front_in.present?
+    .col-lg.mb-2.label Wheel, Front
+    .col-lg.mb-2.measure #{product.wheel_front_in} in
+  - if product.wheel_rear_in.present?
+    .col-lg.mb-2.label Wheel, Rear
+    .col-lg.mb-2.measure #{product.wheel_rear_in} in
+  - if product.tyre_front.present?
+    .col-lg.mb-2.label Tyre, Front
+    .col-lg.mb-2.measure #{product.tyre_front}
+  - if product.tyre_rear.present?
+    .col-lg.mb-2.label Tyre, Rear
+    .col-lg.mb-2.measure #{product.tyre_rear}
   .col-lg.mb-2.label Tube
   .col-lg.mb-2.measure =product.tube ? "Tubeless" : "Tubed"
-  .col-lg.mb-2.label Tyre Type
-  .col-lg.mb-2.measure #{product.tyre_category}
-  .col-lg.mb-2.label Tyre, Front
-  .col-lg.mb-2.measure #{product.tyre_front}
-  .col-lg.mb-2.label Tyre, Rear
-  .col-lg.mb-2.measure #{product.tyre_rear}
-  - unless product.brake_front_desc.blank?
-    .col-lg.mb-2.label Brake, Front
-    .col-lg.mb-2.measure #{product.brake_front_desc}
-  - unless product.brake_rear_desc.blank?
-    .col-lg.mb-2.label Brake, Rear
-    .col-lg.mb-2.measure #{product.brake_rear_desc}
+  - if product.tyre_category.present?
+    .col-lg.mb-2.label Tyre Type
+    .col-lg.mb-2.measure #{product.tyre_category}
+
+
+    
+    
+    
+    
+    //  additional_features: text, data: text, created_at: datetime, updated_at: datetime, retired_on: date, launched_on: date, created_by: integer, updated_by: integer, )
+    

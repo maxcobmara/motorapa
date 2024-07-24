@@ -7,8 +7,6 @@
 <% end %>
 
 
-
-
 <div class="scroller">
   <% Selector::BIKECAT.each do | cat | %>
     <%= link_to products_path(category: cat) do %>
@@ -20,6 +18,7 @@
   <% end %>
 </div>
 <div class="scroller-subtitle form-text">
+  Nak beli motor apa?
   Click on Type or <%= link_to "I dont know what I want", search_products_path %> or <%= link_to "Show me everything", products_path %>
 </div>
 

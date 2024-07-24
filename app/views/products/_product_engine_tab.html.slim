@@ -1,22 +1,49 @@
 .row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
-  .col-lg.mb-2.label Engine Type
-  .col-lg.mb-2.measure #{product.engine_description}
-  .col-lg.mb-2.label Displacement
-  .col-lg.mb-2.measure #{product.displacement} cc
-  .col-lg.mb-2.label Max power
-  .col-lg.mb-2.measure #{product.max_power_ps}PS@#{product.max_power_rpm}rpm
-  .col-lg.mb-2.label Max torque:
-  .col-lg.mb-2.measure #{product.max_torque_nm}Nm@#{product.max_torque_rpm}rpm
-  .col-lg.mb-2.label Cylinders & Valves
-  .col-lg.mb-2.measure #{product.cylinders}cyl #{product.cyl_valves}valves pc
-  .col-lg.mb-2.label Bore x Stroke
-  .col-lg.mb-2.measure #{product.cyl_bore}mm x #{product.cyl_stroke}mm
-  .col-lg.mb-2.label Drive category
-  .col-lg.mb-2.measure #{product.drive_category}
-  .col-lg.mb-2.label Transmission
-  .col-lg.mb-2.measure #{product.transmission}
-  - unless product.clutch.blank?
+  - if product.engine_description.present?
+    .col-lg.mb-2.label Engine Description
+    .col-lg.mb-2.measure #{product.engine_description}
+  - if product.displacement.present?
+    .col-lg.mb-2.label Displacement
+    .col-lg.mb-2.measure #{sig_zero(product.displacement)} cc
+  - if product.engine_card.present?
+    .col-lg.mb-2.label Engine Type
+    .col-lg.mb-2.measure #{product.engine_card}
+  - if product.cooling.present?
+    .col-lg.mb-2.label Cooling
+    .col-lg.mb-2.measure #{product.cooling}
+  - if product.cylinders.present? || product.cyl_valves.present?
+    .col-lg.mb-2.label Cylinders & Valves
+    .col-lg.mb-2.measure #{product.cylinders}cyl #{product.cyl_valves}valves pc
+  - if product.oil_capacity_l.present?
+    .col-lg.mb-2.label Oil Capacity
+    .col-lg.mb-2.measure #{product.oil_capacity_l} ltrs
+  - if product.cyl_bore.present? || product.cyl_stroke.present?
+    .col-lg.mb-2.label Bore x Stroke
+    .col-lg.mb-2.measure #{product.cyl_bore}mm x #{product.cyl_stroke}mm
+  - if product.max_power_ps.present?
+    .col-md.mb-2.label Max power
+    .col-md.mb-2.measure #{product.max_power_ps}PS@ #{product.max_power_rpm}rpm
+  - if product.max_torque_nm.present?
+    .col-lg.mb-2.label Max torque:
+    .col-lg.mb-2.measure #{product.max_torque_nm.round(2)}Nm@ #{product.max_torque_rpm}rpm
+  - if product.topspeed_km.present?
+    .col-lg.mb-2.label Top Speed:
+    .col-lg.mb-2.measure #{product.topspeed_km}Nm@ #{product.max_torque_rpm}rpm
+
+
+
+  - if product.drive_category.present?
+    .col-lg.mb-2.label Final Drive
+    .col-lg.mb-2.measure #{product.drive_category}
+  - if product.transmission.present?
+    .col-lg.mb-2.label Transmission
+    .col-lg.mb-2.measure #{product.transmission}
+  - if product.clutch.present?
     .col-lg.mb-2.label Clutch
     .col-lg.mb-2.measure #{product.clutch}
-  .col-lg.mb-2.label Gears
-  .col-lg.mb-2.measure #{product.gears}
+  - if product.gears.present?
+    .col-lg.mb-2.label Gears
+    .col-lg.mb-2.measure #{product.gears}
+    
+    //.col-lg-3.col-md-6.col-sm-8.mb-2
+
