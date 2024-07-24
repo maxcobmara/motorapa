@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L2XETMPR0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'G-3L2XETMPR0');
+    </script>
+    <meta name="description" content="Nak beli motor apa? tak tahu? meh kami tunjukkan segala motor baru yang dijual kini di Malaysia" />
+    <meta name=”keywords” content="Malaysia new motorcycle motor baru motorcycle motosikal baik beli buyer guide " />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <% if content_for? :for_head %>
       <%= yield :for_head %>
     <% end %>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3L2XETMPR0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-3L2XETMPR0');
-  </script>
 
   <body>
     <%= render 'layouts/brandbar' %>
