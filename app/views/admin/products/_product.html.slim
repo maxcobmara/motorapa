@@ -17,6 +17,8 @@
       = link_to "<< Back to products", admin_products_path 
       | &nbsp; | &nbsp; 
       = link_to "Edit this product", edit_admin_product_path(@product)
+      | &nbsp; | &nbsp; 
+      = link_to 'Clone and edit', clone_admin_product_path(@product), method: :get
   .row
     table.table.table-striped.table-sm.table-bordered
       tr

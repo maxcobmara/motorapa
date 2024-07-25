@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :manufacturers
-    resources :products
+    resources :products do
+      member do
+        get :clone
+      end
+    end
   end
   resources :manufacturers, only: [:index, :show]
   resources :products, only: [:index, :show] do

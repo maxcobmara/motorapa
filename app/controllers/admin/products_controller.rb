@@ -50,6 +50,16 @@ class Admin::ProductsController < ApplicationController
       end
     end
   end
+  
+  def clone
+    old_product = Product.friendly.find(params[:id])
+    @product = old_product.dup
+    @product.created_by = current_user.id
+    @product.slug = nil
+    render :new
+  end
+  
+  
 
   # DELETE /products/1 or /products/1.json
   def destroy
