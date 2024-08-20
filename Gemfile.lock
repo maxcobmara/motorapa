@@ -90,7 +90,7 @@ GEM
     bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.3.0)
-    bullet (7.1.6)
+    bullet (7.2.0)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     capybara (3.40.0)
@@ -235,6 +235,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sitemap_generator (6.3.0)
+      builder (~> 3.0)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -293,7 +295,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   bootsnap
-  bullet (~> 7.1, >= 7.1.5)
+  bullet (~> 7.2)
   capybara
   countries (~> 5.7, >= 5.7.1)
   country_select (~> 8.0)
@@ -310,6 +312,7 @@ DEPENDENCIES
   ransack (~> 4.1, >= 4.1.1)
   seed_dump (~> 3.3, >= 3.3.1)
   selenium-webdriver
+  sitemap_generator (~> 6.3)
   slim (~> 5.2)
   slim-rails (~> 3.6, >= 3.6.3)
   sprockets-rails
