@@ -3,10 +3,21 @@
   = render 'shared/error_messages', object: form.object
 
   .spacer-1
+  
+  
+  
   .row
     .col-md-5.mb-2
       = form.label :profile_pic
       = form.file_field :profile_pic, class: "form-control"
+      
+    .col-md-2.mb-2
+      = form.label :launched_on, style: "display: block"
+      = form.date_field :launched_on, class: "form-control"
+
+    .col-md-2.mb-2
+      = form.label :retired_on, style: "display: block"
+      = form.date_field :retired_on, class: "form-control"
       
   .row
     .col-md-6.mb-2
