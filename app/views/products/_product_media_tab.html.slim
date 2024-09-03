@@ -1,2 +1,14 @@
-.row.row-cols-2.row-cols-sm-4.row-cols-md-6.row-cols-lg-6.spec_row
+.row
   h3 Media
+  
+.row
+  - product.medium.each do | m | 
+    .row
+      .col-md-2.mb-2
+        = m.url_source
+      .col-md-2.mb-2
+        = m.publisher
+      .col-md-6.mb-2
+        = link_to m.title, m.url, target: :_blank
+      .col-md-2.mb-2
+        = m.published_on

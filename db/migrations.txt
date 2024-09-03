@@ -41,7 +41,7 @@ Rails g scaffold Manufacturer name:string website:string country:string data:tex
 .. build some sample data maybe models
 
 
-Rails g scaffold Media product:belongs_to title url url_source published_on:date data:text
+rails g scaffold Media product:belongs_to title url url_source publisher published_on:date data:text
 
 
 pictures

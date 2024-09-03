@@ -1,0 +1,33 @@
+.nested-form-wrapper[data-new-record="<%= f.object.new_record? %>"]
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+  
+    .col-lg.mb-2
+      = f.label :title, style: "display: block"
+      = f.text_field :title, class: "form-control"
+      
+    .col-lg.mb-2
+      = f.label :url, style: "display: block"
+      = f.text_field :url, class: "form-control" 
+      
+  .row.row-cols-1.row-cols-sm-2.row-cols-md-3
+  
+    .col-lg.mb-2
+      = f.label :url_source, style: "display: block"
+      = f.select :url_source, options_for_select(Selector::MEDIACAT.collect { |c| [c, c] }, selected: ""), {}, class: 'form-select'
+
+    .col-lg.mb-2
+      = f.label :publisher, style: "display: block"
+      = f.text_field :publisher, class: "form-control"  
+      
+    .col-lg.mb-2
+      = f.label :published_on, style: "display: block"
+      = f.date_field :published_on, class: "form-control"   
+
+    .col-lg.mb-2
+      button.btn.btn-danger.fright[type="button" data-action="nested-form#remove"]
+        | Remove Link
+      = f.hidden_field :_destroy
+      
+      
+      
+//For youtube this form should be type youtube, video id, then capture metadata in text.

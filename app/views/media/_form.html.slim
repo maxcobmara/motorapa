@@ -1,0 +1,38 @@
+= form_with(model: medium) do |form|
+  - if medium.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(medium.errors.count, "error")} prohibited this medium from being saved:"
+      ul
+        - medium.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :product_id, style: "display: block"
+    = form.text_field :product_id
+
+  div
+    = form.label :title, style: "display: block"
+    = form.text_field :title
+
+  div
+    = form.label :url, style: "display: block"
+    = form.text_field :url
+
+  div
+    = form.label :url_source, style: "display: block"
+    = form.text_field :url_source
+
+  div
+    = form.label :publisher, style: "display: block"
+    = form.text_field :publisher
+
+  div
+    = form.label :published_on, style: "display: block"
+    = form.date_field :published_on
+
+  div
+    = form.label :data, style: "display: block"
+    = form.text_area :data
+
+  div
+    = form.submit

@@ -2,8 +2,14 @@ class Product < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
   
-  has_one_attached :profile_pic
   belongs_to :manufacturer
+  
+  has_one_attached :profile_pic
+  
+  has_many :medium, dependent: :destroy, inverse_of: :product
+  accepts_nested_attributes_for :medium, allow_destroy: :true, reject_if: :all_blank
+  
+  
   
   validates_presence_of :model,:category, :displacement
   

@@ -177,3 +177,19 @@
         th Additional Features:
         = table_data(product.additional_features) 
 
+  .row
+    table.table.table-striped.table-sm.table-bordered
+      tr
+        th Title:
+        th URL Source:
+        th URL:
+        th Publisher:
+        th Published_on
+      - product.medium.each do | m | 
+        tr
+          td= m.title
+          td= m.url
+          td= m.url_source
+          td= m.publisher
+          td= m.published_on
+      

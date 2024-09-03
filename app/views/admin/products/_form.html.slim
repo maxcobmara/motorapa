@@ -1,4 +1,5 @@
-= form_with(model: [:admin, product]) do |form|
+= form_with(model: [:admin, product], data: {controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper'}) do |form|
+  
   = render 'shared/error_messages', object: form.object
 
   .spacer-1
@@ -27,18 +28,18 @@
       = form.label :category, style: "display: block"      
       = form.select :category, options_for_select(Selector::BIKECAT.collect { |c| [c, c] }, selected: product.category), { include_blank: 'Select a Bike Category' }, class: 'form-select'
 
-    .col-md-6.mb-2
+    .col-md-4.mb-2
       = form.label :manufacturer_category, style: "display: block"
       = form.text_field :manufacturer_category, class: "form-control"
+
+    .col-md-4.mb-2
+      = form.label :assembled_in, style: "display: block"
+      = form.text_field :assembled_in, class: "form-control"
 
   .row
     .col-md-4.mb-2
       = form.label :rrp, style: "display: block"
       = form.text_field :rrp, class: "form-control"
-
-    .col-md-4.mb-2
-      = form.label :assembled_in, style: "display: block"
-      = form.text_field :assembled_in, class: "form-control"
       
   .row
     .spacer-1
@@ -296,6 +297,26 @@
     .col-lg.mb-2
       = form.label :additional_features, style: "display: block"
       = form.text_area :additional_features, class: "form-control"
+      
+  .row
+    .spacer-1
+    h6 
+      | Media
+      button.btn.btn-secondary.fright[type="button" data-action="nested-form#add"]
+        | Add Media
+    hr
+  .row
+    template[data-nested-form-target="template"]
+      = form.fields_for :medium, Medium.new, child_index: 'NEW_RECORD' do |media_fields|
+        = render "media_form", f: media_fields
+        
+    = form.fields_for :medium do |media_fields|
+      = render "media_form", f: media_fields
+      
+    div[data-nested-form-target="target"]
+    
+  .row
+    .spacer-1
       
   .actions
     = form.submit class: "btn btn-primary"

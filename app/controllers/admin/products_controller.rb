@@ -6,6 +6,7 @@ class Admin::ProductsController < ApplicationController
   def index
     @search = Product.ransack(params[:q])
     @products = @search.result
+    @products = @products.includes([:manufacturer])
     #@search.build_condition
   end
 
@@ -16,6 +17,7 @@ class Admin::ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @product.medium.build
   end
 
   # GET /products/1/edit
@@ -85,8 +87,6 @@ class Admin::ProductsController < ApplicationController
         :engine_description, :displacement, :topspeed_km, :max_power_ps, :max_power_rpm, :max_torque_nm, :max_torque_rpm, :cylinders, :cyl_bore, :cyl_stroke, :cyl_valves, :oil_capacity_l,
         :fuel, :fuel_capacity_l, :consumption_lkm, :range_km, :drive_category, :transmission, :clutch, :gears, 
         :tyre_front, :tyre_rear, :tube, :tyre_category, :wheel_front_in, :wheel_rear_in, :brake_front_desc, :brake_rear_desc, :suspension_front, :suspension_rear,
-        :battery_size, :cooling, :additional_features, :engine_card).merge(updated_by: current_user.id)
+        :battery_size, :cooling, :additional_features, :engine_card, medium_attributes: [:id, :title, :url, :url_source, :publisher, :published_on, :data, :_destroy]).merge(updated_by: current_user.id)
     end
 end
-
-

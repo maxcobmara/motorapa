@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Media
+
+#media
+  - @media.each do |medium|
+    == render medium
+    p
+      = link_to "Show this medium", medium
+
+= link_to "New medium", new_medium_path
