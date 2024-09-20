@@ -14,7 +14,7 @@ gem 'pg', '~> 1.5', '>= 1.5.6'
 
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 5.6"
 gem "image_processing", ">= 1.2"
 gem "aws-sdk-s3", require: false
 
