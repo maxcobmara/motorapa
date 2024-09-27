@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Feedbacks
+
+#feedbacks
+  - @feedbacks.each do |feedback|
+    == render feedback
+    p
+      = link_to "Show this feedback", feedback
+
+= link_to "New feedback", new_feedback_path

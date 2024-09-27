@@ -8,19 +8,37 @@ button.feedback-btn[type="button" data-bs-toggle="modal" data-bs-target="#exampl
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        | text
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+  .modal-dialog
+    - @feedback = Feedback.new
+    = form_with(model: @feedback, url: feedbacks_path) do |f|
+      .modal-content
+        .modal-header
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Feedback Form</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        .modal-body
+          = render 'shared/error_messages', object: f.object unless f.object.nil?
+          = render "shared/flashes"
+          
+          .mb-3
+            = f.select :category, options_for_select(Selector::FEEDCAT.collect { |c| [c, c] }), { include_blank: 'Select Feedback Category'}, class: 'form-select', required: true 
+          
+
+          .mb-3
+            = f.text_field :name, placeholder: 'Name', class: "form-control", required: true
+
+          .mb-3
+            = f.email_field :email, placeholder: 'Email', class: "form-control", required: true
+            
+          .mb-3
+            = f.country_select :country, {priority_countries: ["MY"]}, {class: 'form-select'}
+
+          .mb-3
+            = f.text_field :phone, placeholder: 'Phone', class: "form-control"
+
+          .mb-3
+            = f.text_area :comment, placeholder: 'Message', style: 'height: 150px; padding: 10px;', minlength: 8, class: "form-control"
+
+        .modal-footer
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Send</button>
 </div>

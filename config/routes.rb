@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :feedbacks#, only: [:index, :show, :new]
   resources :media
   devise_for :users
   
   namespace :admin do
+    resources :feedbacks, only: [:show, :new]
     resources :manufacturers
     resources :products do
       member do

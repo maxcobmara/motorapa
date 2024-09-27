@@ -43,7 +43,7 @@ Rails g scaffold Manufacturer name:string website:string country:string data:tex
 
 rails g scaffold Media product:belongs_to title url url_source publisher published_on:date data:text
 
-rails g scaffold Feedback category, url, email, comment
+rails g scaffold Feedback category, url, email, phone, country, comment
 
 
 
