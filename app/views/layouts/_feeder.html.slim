@@ -17,7 +17,6 @@ button.feedback-btn[type="button" data-bs-toggle="modal" data-bs-target="#exampl
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         .modal-body
           = render 'shared/error_messages', object: f.object unless f.object.nil?
-          = render "shared/flashes"
           
           .mb-3
             = f.select :category, options_for_select(Selector::FEEDCAT.collect { |c| [c, c] }), { include_blank: 'Select Feedback Category'}, class: 'form-select', required: true 
@@ -36,7 +35,7 @@ button.feedback-btn[type="button" data-bs-toggle="modal" data-bs-target="#exampl
             = f.text_field :phone, placeholder: 'Phone', class: "form-control"
 
           .mb-3
-            = f.text_area :comment, placeholder: 'Message', style: 'height: 150px; padding: 10px;', minlength: 8, class: "form-control"
+            = f.text_area :comment, placeholder: 'Message', style: 'height: 150px; padding: 10px;', minlength: 8, class: "form-control", required: true
 
         .modal-footer
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

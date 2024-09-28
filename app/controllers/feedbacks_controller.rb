@@ -18,7 +18,7 @@ class FeedbacksController < ApplicationController
         format.html { redirect_back_or_to root_path, notice: "Feedback was successfully created." }
         format.json { render :show, status: :created, location: @feedback }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_back_or_to root_path, status: :unprocessable_entity }
         format.json { render json: @feedback.errors, status: :unprocessable_entity }
       end
     end
