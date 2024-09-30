@@ -5,11 +5,12 @@
 
 button.feedback-btn[type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"]
   i.fas.fa-inbox
+  - @feedback = Feedback.new
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   .modal-dialog
-    - @feedback = Feedback.new
+    
     = form_with(model: @feedback, url: feedbacks_path) do |f|
       .modal-content
         .modal-header
@@ -36,6 +37,11 @@ button.feedback-btn[type="button" data-bs-toggle="modal" data-bs-target="#exampl
 
           .mb-3
             = f.text_area :comment, placeholder: 'Message', style: 'height: 150px; padding: 10px;', minlength: 8, class: "form-control", required: true
+            
+          .mb3
+            .form-check
+              = f.check_box :contact_me, as: :boolean, checked: true, class: 'form-check-input'
+              label.form-check-label Contact Me
 
         .modal-footer
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
