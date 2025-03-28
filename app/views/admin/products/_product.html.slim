@@ -1,5 +1,5 @@
 .admin_product[id="<%= dom_id product %>"]
-  .row 
+  .row
     .col-md-4
       .title
         h2 #{product.manufacturer.name} #{product.model}  #{product.model_code}
@@ -8,16 +8,16 @@
     .col-md-4
       - if product.profile_pic.attached?
         = image_tag product.profile_pic, style: 'height:auto;width:100%;', alt: ""
-      - else 
+      - else
         = image_tag "motorapa_drop_in.svg", style: 'height:auto;width:100%;', alt: ""
-     
+
   .spacer-1
   .row
     .col-md-12
-      = link_to "<< Back to products", admin_products_path 
-      | &nbsp; | &nbsp; 
+      = link_to "<< Back to products", admin_products_path
+      | &nbsp; | &nbsp;
       = link_to "Edit this product", edit_admin_product_path(@product)
-      | &nbsp; | &nbsp; 
+      | &nbsp; | &nbsp;
       = link_to 'Clone and edit', clone_admin_product_path(@product), method: :get
   .row
     table.table.table-striped.table-sm.table-bordered
@@ -37,6 +37,12 @@
         th Man Category
         = table_data(product.manufacturer_category)
       tr
+        th Launched
+        = table_data(product.launched_on)
+      tr
+        th Retired
+        = table_data(product.retired_on)
+      tr
         th Engine
         = table_data(product.engine_card)
       tr
@@ -48,8 +54,8 @@
       tr
         th Rrp:
         = table_data(product.rrp, "", "price")
-        
-      // Dimensions  
+
+      // Dimensions
       tr
         th[colspan=2] Dimensions
       tr
@@ -76,8 +82,8 @@
       tr
         th Battery size :
         = table_data(product.battery_size)
-        
-      // Engine  
+
+      // Engine
       tr
         th[colspan=2] Engine
       tr
@@ -97,21 +103,21 @@
         = table_data(product.max_torque_nm, "Nm")
       tr
         th Max torque rpm:
-        = table_data(product.max_torque_rpm, "rpm")  
+        = table_data(product.max_torque_rpm, "rpm")
       tr
         th Cylinders:
-        = table_data(product.cylinders)  
+        = table_data(product.cylinders)
       tr
         th Bore (mm):
-        = table_data(product.cyl_bore)  
+        = table_data(product.cyl_bore)
       tr
         th Stroke (mm):
-        = table_data(product.cyl_stroke)  
+        = table_data(product.cyl_stroke)
       tr
         th Valves per Cylinder:
         = table_data(product.cyl_valves)
-        
-      // Fuel  
+
+      // Fuel
       tr
         th[colspan=2] Fuel
       tr
@@ -126,7 +132,7 @@
       tr
         th Range (Km):
         = table_data(product.range_km)
-        
+
       tr
         th[colspan=2] Drivetrain
       tr
@@ -140,8 +146,8 @@
         = table_data(product.clutch)
       tr
         th Gears:
-        = table_data(product.gears) 
-        
+        = table_data(product.gears)
+
       // Tyres
       tr
         th[colspan=2] Tyres, Wheels
@@ -169,13 +175,13 @@
       tr
         th Brakes (Rear):
         = table_data(product.brake_rear_desc)
-        
+
       // Features
       tr
         th[colspan=2] Features
       tr
         th Additional Features:
-        = table_data(product.additional_features) 
+        = table_data(product.additional_features)
 
   .row
     table.table.table-striped.table-sm.table-bordered
@@ -185,11 +191,10 @@
         th URL:
         th Publisher:
         th Published_on
-      - product.medium.each do | m | 
+      - product.medium.each do | m |
         tr
           td= m.title
           td= m.url
           td= m.url_source
           td= m.publisher
           td= m.published_on
-      

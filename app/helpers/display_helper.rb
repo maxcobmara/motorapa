@@ -1,27 +1,27 @@
 module DisplayHelper
-  
+
   #index title management
   def mm_in(mm)
     (mm.to_i/25.4).round()
   end
-  
+
   def kg_lbs(kg)
     (kg.to_i*2.2).round()
   end
-  
-  def price(rrp) 
-    number_to_currency(rrp, unit: "MYR ", delimiter: ",",  precision: 2)
+
+  def price(rrp)
+    number_to_currency(rrp, unit: "MYR ", delimiter: ",",  precision: 2) unless rrp.nil?
   end
-  
-  def price_s(rrp) 
+
+  def price_s(rrp)
     number_to_currency(rrp, unit: "RM ", delimiter: ",",  precision: 0)
   end
-  
+
   def sig_zero(amount=0)
-    sprintf('%g', amount) 
-  end  
-  
-  
+    sprintf('%g', amount)
+  end
+
+
   def table_data(object, suffix=0, formatter=0)
     class_name = "table-danger" if object.blank?
     #object = "No data" if object.blank?

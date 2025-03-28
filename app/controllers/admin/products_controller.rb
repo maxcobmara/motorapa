@@ -52,7 +52,7 @@ class Admin::ProductsController < ApplicationController
       end
     end
   end
-  
+
   def clone
     old_product = Product.friendly.find(params[:id])
     @product = old_product.dup
@@ -60,8 +60,8 @@ class Admin::ProductsController < ApplicationController
     @product.slug = nil
     render :new
   end
-  
-  
+
+
 
   # DELETE /products/1 or /products/1.json
   def destroy
@@ -83,10 +83,11 @@ class Admin::ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(
         :manufacturer_id, :model, :profile_pic, :model_code, :url, :category, :manufacturer_category, :assembled_in, :rrp,
-        :seat_height_mm, :wheelbase_mm, :length_mm, :height_mm, :width_mm, :ground_clearance_mm, :kerb_weight_kg, 
+        :seat_height_mm, :wheelbase_mm, :length_mm, :height_mm, :width_mm, :ground_clearance_mm, :kerb_weight_kg,
         :engine_description, :displacement, :topspeed_km, :max_power_ps, :max_power_rpm, :max_torque_nm, :max_torque_rpm, :cylinders, :cyl_bore, :cyl_stroke, :cyl_valves, :oil_capacity_l,
-        :fuel, :fuel_capacity_l, :consumption_lkm, :range_km, :drive_category, :transmission, :clutch, :gears, 
+        :fuel, :fuel_capacity_l, :consumption_lkm, :range_km, :drive_category, :transmission, :clutch, :gears,
         :tyre_front, :tyre_rear, :tube, :tyre_category, :wheel_front_in, :wheel_rear_in, :brake_front_desc, :brake_rear_desc, :suspension_front, :suspension_rear,
+        :launched_on, :retired_on,
         :battery_size, :cooling, :additional_features, :engine_card, medium_attributes: [:id, :title, :url, :url_source, :publisher, :published_on, :data, :_destroy]).merge(updated_by: current_user.id)
     end
 end
