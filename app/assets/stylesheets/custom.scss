@@ -87,6 +87,38 @@ body {
       background-color:#EEEEE0; font-size: 0.7em; font-weight:500; 
       padding:5px; border-left:solid 8px white; border-right:solid 8px white; border-bottom:solid 5px white; 
     }
+
+    .retired::after {
+      content: "DISCONTINUED";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg); /* Center & Rotate */
+      
+      /* Stamp Appearance */
+      color: rgba(255, 0, 0, 0.7);
+      font-weight: bold;
+      font-size: 2rem;
+      text-transform: uppercase;
+      white-space: nowrap;
+      
+      /* Stacking Order */
+      z-index: 10;
+      pointer-events: none; /* Allows clicking through the stamp */
+    }
+
+    .overlay {        
+      position: absolute;
+      inset: 0; /* Modern shorthand for top/right/bottom/left: 0 */
+      background: rgba(0, 0, 0, 0.35); /* Darker gray overlay */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      pointer-events: none;
+    }
+
+    img.retired {filter: contrast(50%) grayscale(60%);}
   }
   
   .products_show {

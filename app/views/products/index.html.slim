@@ -24,7 +24,7 @@
             |  #{product.manufacturer.name}
             .flag.fright= ISO3166::Country.find_country_by_alpha2(product.manufacturer.country).try(:emoji_flag)
           - if product.profile_pic.attached?
-            = image_tag product.profile_pic, class: "card-img-top", alt: ""
+            = image_tag product.profile_pic, class: "card-img-top #{'retired' if product.retired?}", alt: ""
           - else 
             = image_tag "motorapa_drop_in.svg", class: "card-img-top", alt: ""
         
@@ -56,4 +56,7 @@
             .row.specs
               .col-5 Price
               .col-7= price_s(product.rrp)
-          = link_to "", product, class: "stretched-link"
+          - if product.active?
+            = link_to "", product, class: "stretched-link"
+          - else 
+            = link_to "", "#", class: "stretched-link #{'retired overlay disabled' if product.retired?}"

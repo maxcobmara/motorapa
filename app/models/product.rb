@@ -54,6 +54,15 @@ class Product < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
   ["manufacturer"]
   end
+
+  def active? 
+    retired_on == nil
+  end
+
+  def retired?
+    retired_on != nil
+  end
+
   
   
   
