@@ -26,7 +26,7 @@
           - if product.profile_pic.attached?
             = image_tag product.profile_pic, class: "card-img-top #{'retired' if product.retired?}", alt: ""
           - else 
-            = image_tag "motorapa_drop_in.svg", class: "card-img-top", alt: ""
+            = image_tag "motorapa_#{product.category.parameterize(separator: '_')}.svg", class: "card-img-top", alt: ""
         
           .card-body
             h5.card-title #{product.model} #{product.model_code}
