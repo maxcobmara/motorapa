@@ -32,7 +32,7 @@ gem "aws-sdk-s3", require: false
 
 gem 'friendly_id', '~> 5.5', '>= 5.5.1'
 gem 'ransack', '~> 4.1', '>= 4.1.1'
-gem 'devise', '~> 4.9', '>= 4.9.4'
+gem 'devise', '~> 5.0'
 
 gem 'slim', '~> 5.2'
 gem 'slim-rails', '~> 3.6', '>= 3.6.3'
