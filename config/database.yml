@@ -13,10 +13,11 @@ default: &default
 
 development:
   <<: *default
-  #database: db/motorapa_development.sqlite3
-  database: motorapa_development
-  username: postgres
-  password: maximum8
+  adapter: sqlite3
+  database: db/motorapa_development.sqlite3
+  #database: motorapa_development
+  #username: postgres
+  #password: maximum8
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
