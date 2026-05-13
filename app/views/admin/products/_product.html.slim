@@ -9,7 +9,7 @@
       - if product.profile_pic.attached?
         = image_tag product.profile_pic, style: 'height:auto;width:100%;', alt: ""
       - else
-        = image_tag "motorapa_#{product.parameterize(separator: '_')}.svg", style: 'height:auto;width:100%;', alt: ""
+        = image_tag "motorapa_#{product.category.parameterize(separator: '_')}.svg", style: 'height:auto;width:100%;', alt: ""
 
   .spacer-1
   .row
