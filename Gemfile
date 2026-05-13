@@ -4,17 +4,18 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "3.3.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.8"
+gem "rails", "~> 7.1.6"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+gem 'importmap-rails', '~> 2.2', '>= 2.2.3'
 
 # Use sqlite3 as the database for Active Record
 gem 'pg', '~> 1.5', '>= 1.5.6'
 
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.6"
+gem 'puma', '~> 6.6', '>= 6.6.1'
 gem "image_processing", ">= 1.2"
 gem "aws-sdk-s3", require: false
 
@@ -32,10 +33,12 @@ gem "aws-sdk-s3", require: false
 
 gem 'friendly_id', '~> 5.5', '>= 5.5.1'
 gem 'ransack', '~> 4.1', '>= 4.1.1'
-gem 'devise', '~> 4.9', '>= 4.9.4'
+gem 'devise', '~> 5.0', '>= 5.0.4'
 
 gem 'slim', '~> 5.2'
 gem 'slim-rails', '~> 3.6', '>= 3.6.3'
+
+gem 'bootstrap', '~> 5.3'
 
 
 gem 'countries', '~> 5.7', '>= 5.7.1'
@@ -83,3 +86,5 @@ group :test do
   gem "webdrivers"
   
 end
+
+gem "dartsass-rails", "~> 0.5.1"

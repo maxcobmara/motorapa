@@ -14,13 +14,14 @@
 
       gtag('config', 'G-3L2XETMPR0');
     </script>
+    <script src="https://kit.fontawesome.com/a288d14f7b.js" crossorigin="anonymous"></script>
     <meta name="description" content="Nak beli motor apa? tak tahu? meh kami tunjukkan segala motor baru yang dijual kini di Malaysia" />
     <meta name=”keywords” content="Malaysia new motorcycle motor baru motorcycle motosikal baik beli buyer guide " />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <% if content_for? :for_head %>
       <%= yield :for_head %>
     <% end %>
+    <%= javascript_importmap_tags %>
   </head>
 
 
