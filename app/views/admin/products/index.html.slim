@@ -1,7 +1,23 @@
 = title(controller_path)
-
 .spacer-1
 .admin
+
+  = search_form_for [:admin, @search] do | f |
+    .row
+      .col-auto
+        = f.label :manufacturer_name_cont
+        = f.text_field  :manufacturer_name_cont, class: "form-control"
+
+      
+      .col-auto
+        = f.label :model_cont
+        = f.text_field  :model_cont, class: "form-control"
+      .col-auto
+        = f.submit "Search", class: "btn btn-secondary mb-3" 
+      
+
+
+
   table.table.table-hover.table-sm
     thead.table-light
       th= sort_link @search, :manufacturer_name, "Manufacturer"
