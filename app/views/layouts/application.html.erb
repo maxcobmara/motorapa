@@ -17,11 +17,11 @@
     <script src="https://kit.fontawesome.com/a288d14f7b.js" crossorigin="anonymous"></script>
     <meta name="description" content="Nak beli motor apa? tak tahu? meh kami tunjukkan segala motor baru yang dijual kini di Malaysia" />
     <meta name=”keywords” content="Malaysia new motorcycle motor baru motorcycle motosikal baik beli buyer guide " />
+    <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <% if content_for? :for_head %>
       <%= yield :for_head %>
     <% end %>
-    <%= javascript_importmap_tags %>
   </head>
 
 
