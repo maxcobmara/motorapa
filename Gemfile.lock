@@ -309,8 +309,8 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sqlite3 (1.7.3-x86_64-darwin)
-    sqlite3 (1.7.3-x86_64-linux)
+    sqlite3 (2.9.5-x86_64-darwin)
+    sqlite3 (2.9.5-x86_64-linux-gnu)
     stringio (3.2.0)
     temple (0.10.3)
     thor (1.5.0)
@@ -369,7 +369,7 @@ DEPENDENCIES
   slim (~> 5.2)
   slim-rails (~> 3.6, >= 3.6.3)
   sprockets-rails
-  sqlite3 (~> 1.4)
+  sqlite3 (~> 2.9)
   tzinfo-data
   web-console
   webdrivers
