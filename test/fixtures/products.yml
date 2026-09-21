@@ -1,10 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  manufacturer: MyString
+  manufacturer: acme
   model: MyString
   model_code: MyString
-  url: MyString
+  slug: product_one
+  category: <%= Selector::BIKECAT[0] %>
   rrp: 9.99
   seat_height_mm: 1
   wheelbase_mm: 1
@@ -41,13 +42,16 @@ one:
   brake_rear_desc: MyString
   battery_size: MyString
   additional_features: MyText
-  data: MyText
+  data:
+    key1: "value1"
+    key2: "value2"
 
 two:
-  manufacturer: MyString
+  manufacturer: acme-two
   model: MyString
   model_code: MyString
-  url: MyString
+  slug: product_two
+  category: <%= Selector::BIKECAT[1] %>
   rrp: 9.99
   seat_height_mm: 1
   wheelbase_mm: 1
@@ -84,4 +88,6 @@ two:
   brake_rear_desc: MyString
   battery_size: MyString
   additional_features: MyText
-  data: MyText
+  data: 
+    key1: "value1"
+    key2: "value2"

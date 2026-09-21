@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+acme:
   name: MyString
+  slug: acme-corp
   website: MyString
   country: MyString
   data: MyText
 
-two:
+acme-two:
   name: MyString
+  slug: acme-corp-two
   website: MyString
   country: MyString
   data: MyText

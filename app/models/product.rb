@@ -11,12 +11,13 @@ class Product < ApplicationRecord
   
   
   
-  validates_presence_of :model,:category, :displacement
+  validates_presence_of :model, :category, :displacement
   
   before_save :calc_range
   
   
-  serialize :data, Hash
+  serialize :data, type: Hash
+  #serialize :data, type: Hash, coder: JSON  if you want JSON
   
   def slug_candidates
     [
