@@ -1,10 +1,6 @@
 class FeedbacksController < ApplicationController
 
-  # GET /feedbacks/new
-  def index
-    @feedbacks = Feedback.all
-  end
-  
+  # GET /feedbacks/new  
   def new
     @feedback = Feedback.new
   end

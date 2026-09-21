@@ -1,3 +1,4 @@
+- feedback ||= Feedback.new
 = form_with(model: feedback) do |form|
   - if feedback.errors.any?
     div style="color: red"
@@ -7,24 +8,24 @@
           li = error.full_message
 
   div
-    = form.label :category,, style: "display: block"
-    = form.text_field :category,
+    = form.label :category, style: "display: block"
+    = form.text_field :category
 
   div
-    = form.label :url,, style: "display: block"
-    = form.text_field :url,
+    = form.label :url, style: "display: block"
+    = form.text_field :url
 
   div
-    = form.label :email,, style: "display: block"
-    = form.text_field :email,
+    = form.label :email, style: "display: block"
+    = form.text_field :email
 
   div
-    = form.label :phone,, style: "display: block"
-    = form.text_field :phone,
+    = form.label :phone, style: "display: block"
+    = form.text_field :phone
 
   div
-    = form.label :country,, style: "display: block"
-    = form.text_field :country,
+    = form.label :country, style: "display: block"
+    = form.text_field :country
 
   div
     = form.label :comment, style: "display: block"
