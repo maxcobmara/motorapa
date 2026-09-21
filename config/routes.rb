@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  resources :feedbacks#, only: [:index, :show, :new]
+  resources :feedbacks, only: [:new, :create, :show]
   resources :media
   devise_for :users
   
   namespace :admin do
-    resources :feedbacks, only: [:show, :new]
+    resources :feedbacks, only: [:index, :destroy]
     resources :manufacturers
     resources :products do
       member do
@@ -27,5 +27,7 @@ Rails.application.routes.draw do
   get "/landing", to: "pages#home"
   root to: "pages#home"
   #root to: "pages#coming_soon"
+  #
+  match "*unmatched", to: "application#route_not_found", via: :all
   
 end

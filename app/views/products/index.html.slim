@@ -21,12 +21,12 @@
       .col
         .card.h-100
           .card-header
-            |  #{product.manufacturer.name}
+            |  #{product.manufacturer&.name}
             .flag.fright= ISO3166::Country.find_country_by_alpha2(product.manufacturer.country).try(:emoji_flag)
           - if product.profile_pic.attached?
             = image_tag product.profile_pic, class: "card-img-top #{'retired' if product.retired?}", alt: ""
           - else 
-            = image_tag "motorapa_#{product.category.parameterize(separator: '_')}.svg", class: "card-img-top", alt: ""
+            = image_tag "motorapa_#{product.category&.parameterize(separator: '_')}.svg", class: "card-img-top", alt: ""
         
           .card-body
             h5.card-title #{product.model} #{product.model_code}

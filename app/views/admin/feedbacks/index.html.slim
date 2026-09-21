@@ -1,0 +1,67 @@
+.container-fluid.py-4
+  .d-flex.justify-content-between.align-items-center.mb-3
+    h1.h3.mb-0 Feedbacks
+    = link_to new_feedback_path, class: "btn btn-primary d-inline-flex align-items-center gap-1" do
+      i.bi.bi-plus-lg
+      span New Feedback
+
+  .card.shadow-sm
+    .card-body.p-0
+      .table-responsive
+        table.table.table-hover.table-striped.align-middle.mb-0
+          thead.table-light
+            tr
+              th scope="col" ID
+              th scope="col" Submitter
+              th scope="col" Category
+              th scope="col" Contact
+              th scope="col" URL / Comment
+              th scope="col" Contact Request
+              th scope="col" Created
+              th.text-end scope="col" Actions
+          tbody
+            - if @feedbacks.any?
+              - @feedbacks.each do |feedback|
+                tr
+                  td.fw-bold = feedback.id
+                  td
+                    .fw-semibold = feedback.name.presence || "Anonymous"
+                    - if feedback.country.present?
+                      span.badge.text-bg-light.border.ms-1 = feedback.country
+                  td
+                    - if feedback.category.present?
+                      span.badge.bg-secondary = feedback.category
+                    - else
+                      span.text-muted —
+                  td
+                    small.d-block
+                      i.bi.bi-envelope.me-1
+                      = feedback.email.presence || "—"
+                    - if feedback.phone.present?
+                      small.text-muted.d-block
+                        i.bi.bi-telephone.me-1
+                        = feedback.phone
+                  td
+                    - if feedback.url.present?
+                      .mb-1
+                        = link_to feedback.url, feedback.url, target: "_blank", rel: "noopener", class: "small text-truncate d-inline-block", style: "max-width: 200px;"
+                    .text-muted.small.text-truncate style="max-width: 250px;" title=feedback.comment
+                      = feedback.comment.presence || "No comment provided"
+                  td
+                    - if feedback.contact_me?
+                      span.badge.bg-success Required
+                    - else
+                      span.badge.bg-light.text-dark No
+                  td.text-nowrap
+                    small.text-muted = feedback.created_at.strftime("%b %d, %Y %H:%M")
+                  td.text-end
+                    .btn-group.btn-group-sm role="group"
+                      = link_to feedback_path(feedback), class: "btn btn-outline-secondary", title: "View" do
+                        i.bi.bi-eye
+                      = link_to feedback_path(feedback), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger", title: "Delete" do
+                        i.bi.bi-trash
+            - else
+              tr
+                td.text-center.py-4.text-muted colspan="8"
+                  i.bi.bi-inbox.fs-2.d-block.mb-2
+                  | No feedbacks found.
